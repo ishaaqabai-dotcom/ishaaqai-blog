@@ -36,7 +36,7 @@
     /* NAV */
     nav { border-bottom: 1px solid var(--rule); padding: 0 24px; max-width: var(--max); margin: 0 auto; }
     nav ul { display: flex; list-style: none; overflow-x: auto; }
-    nav ul li a { display: block; font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-light); padding: 14px 18px; border-right: 1px solid var(--rule-light); white-space: nowrap; transition: color 0.2s, background 0.2s; }
+    nav ul li a { display: block; font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-light); padding: 14px 18px; border-right: 1px solid var(--rule-light); white-space: nowrap; transition: color 0.2s, background 0.2s; cursor: pointer; }
     nav ul li:first-child a { border-left: 1px solid var(--rule-light); }
     nav ul li a:hover, nav ul li a.active { color: var(--accent); background: var(--paper-alt); }
 
@@ -93,7 +93,7 @@
     .sidebar-widget { margin-bottom: 32px; }
     .sidebar-widget h4 { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; border-bottom: 2px solid var(--ink); padding-bottom: 8px; margin-bottom: 14px; }
     .topics { display: flex; flex-wrap: wrap; gap: 8px; }
-    .topics a { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; border: 1px solid var(--rule); padding: 5px 12px; background: var(--paper-alt); transition: all 0.2s; }
+    .topics a { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; border: 1px solid var(--rule); padding: 5px 12px; background: var(--paper-alt); transition: all 0.2s; cursor: pointer; }
     .topics a:hover { background: var(--ink); color: #fff; border-color: var(--ink); }
     .nl-box { background: var(--ink); color: #fff; padding: 20px; }
     .nl-box h4 { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: #fff; border-bottom: 1px solid #333; padding-bottom: 8px; margin-bottom: 10px; }
@@ -113,25 +113,26 @@
     .about-links a:hover { background: var(--ink); color: #fff; border-color: var(--ink); }
 
     /* FOOTER */
-    footer { padding: 28px 24px; text-align: center; border-top: 4px double var(--rule); max-width: var(--max); margin: 0 auto; }
-    footer p { font-family: 'Inter', sans-serif; font-size: 11px; letter-spacing: 0.08em; color: var(--ink-light); }
-    .footer-brand { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 900; color: var(--ink); margin-bottom: 6px; }
+    footer { text-align: center; padding: 32px 24px; border-top: 3px double var(--rule); font-family: 'Inter', sans-serif; font-size: 12px; color: var(--ink-light); letter-spacing: 0.06em; }
+    .footer-brand { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 900; color: var(--ink); margin-bottom: 6px; }
+
+    /* FILTER STATES */
+    [data-category].hidden { display: none !important; }
+    .filter-banner { background: var(--paper-alt); border: 1px solid var(--rule); padding: 10px 16px; margin: 16px 0 0; font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-light); display: none; align-items: center; justify-content: space-between; }
+    .filter-banner.visible { display: flex; }
+    .filter-banner button { background: none; border: 1px solid var(--rule); padding: 3px 10px; font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; color: var(--accent); transition: all 0.2s; }
+    .filter-banner button:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
 
     /* RESPONSIVE */
-    @media (max-width: 900px) {
+    @media (max-width: 768px) {
       .hero { grid-template-columns: 1fr; }
-      .hero-main { border-right: none; padding-right: 0; border-bottom: 1px solid var(--rule); padding-bottom: 28px; margin-bottom: 28px; }
+      .hero-main { border-right: none; padding-right: 0; border-bottom: 1px solid var(--rule); padding-bottom: 24px; margin-bottom: 24px; }
       .hero-sidebar { padding-left: 0; }
-      .post-grid { grid-template-columns: 1fr 1fr; }
-      .two-col { grid-template-columns: 1fr; }
-      .sidebar { border-left: none; padding-left: 0; border-top: 2px solid var(--rule); padding-top: 28px; }
-    }
-    @media (max-width: 600px) {
-      .masthead h1 { font-size: 46px; }
       .post-grid { grid-template-columns: 1fr; }
-      nav ul li a { padding: 12px 10px; font-size: 11px; }
-      .about-strip { grid-template-columns: 1fr; justify-items: center; text-align: center; }
-      .about-links { justify-content: center; }
+      .two-col { grid-template-columns: 1fr; }
+      .sidebar { border-left: none; padding-left: 0; border-top: 2px solid var(--rule); padding-top: 24px; }
+      .list-post { grid-template-columns: 1fr; }
+      .thumb { display: none; }
     }
   </style>
 </head>
@@ -139,7 +140,7 @@
 
 <!-- TICKER -->
 <div class="ticker-bar">
-  <span class="ticker-inner">
+  <div class="ticker-inner">
     <span>AI &amp; Technology</span><span>&nbsp;&bull;&nbsp;</span>
     <span>Operations &amp; Strategy</span><span>&nbsp;&bull;&nbsp;</span>
     <span>Build in Public</span><span>&nbsp;&bull;&nbsp;</span>
@@ -148,7 +149,7 @@
     <span>Operations &amp; Strategy</span><span>&nbsp;&bull;&nbsp;</span>
     <span>Build in Public</span><span>&nbsp;&bull;&nbsp;</span>
     <span>Personal Growth</span><span>&nbsp;&bull;&nbsp;</span>
-  </span>
+  </div>
 </div>
 
 <!-- MASTHEAD -->
@@ -161,20 +162,26 @@
 <!-- NAV -->
 <nav>
   <ul>
-    <li><a href="#" class="active">Home</a></li>
-    <li><a href="#">AI &amp; Tech</a></li>
-    <li><a href="#">Operations</a></li>
-    <li><a href="#">Build in Public</a></li>
-    <li><a href="#">Personal Growth</a></li>
-    <li><a href="#">About</a></li>
+    <li><a class="active" onclick="filterPosts('all', this)">Home</a></li>
+    <li><a onclick="filterPosts('ai', this)">AI &amp; Tech</a></li>
+    <li><a onclick="filterPosts('operations', this)">Operations</a></li>
+    <li><a onclick="filterPosts('build', this)">Build in Public</a></li>
+    <li><a onclick="filterPosts('growth', this)">Personal Growth</a></li>
+    <li><a onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">About</a></li>
   </ul>
 </nav>
 
 <main class="site-wrap">
 
+  <!-- FILTER BANNER -->
+  <div class="filter-banner" id="filter-banner">
+    <span id="filter-label">Showing: All Posts</span>
+    <button onclick="filterPosts('all', null)">Clear Filter &times;</button>
+  </div>
+
   <!-- HERO -->
   <section class="hero">
-    <article class="hero-main">
+    <article class="hero-main" data-category="ai">
       <div class="hero-img">&#129504;</div>
       <span class="post-tag">AI &amp; Technology</span>
       <h2><a href="posts/agentic-ai.html">The Age of Agentic AI: Why Your Next Hire Might Be a Software Agent</a></h2>
@@ -189,22 +196,22 @@
 
     <aside class="hero-sidebar">
       <p class="section-label">Also in this issue</p>
-      <article class="side-post">
+      <article class="side-post" data-category="build">
         <span class="tag">Build in Public</span>
         <h3 style="font-family:'Playfair Display',serif;font-size:17px;font-weight:700;line-height:1.3;margin:4px 0 6px;"><a href="posts/5-agent-automation.html">How I Built a 5-Agent Automation in 48 Hours</a></h3>
         <div class="post-meta"><span>Feb 28, 2026</span><span class="dot">&bull;</span><span class="rt">5 min</span></div>
       </article>
-      <article class="side-post">
+      <article class="side-post" data-category="operations">
         <span class="tag">Operations</span>
         <h3 style="font-family:'Playfair Display',serif;font-size:17px;font-weight:700;line-height:1.3;margin:4px 0 6px;"><a href="posts/human-approval-gates.html">The Bottleneck Nobody Talks About: Human Approval Gates</a></h3>
         <div class="post-meta"><span>Feb 20, 2026</span><span class="dot">&bull;</span><span class="rt">6 min</span></div>
       </article>
-      <article class="side-post">
+      <article class="side-post" data-category="growth">
         <span class="tag">Personal Growth</span>
         <h3 style="font-family:'Playfair Display',serif;font-size:17px;font-weight:700;line-height:1.3;margin:4px 0 6px;"><a href="posts/1000-days.html">What 1,000 Days of Consistent Output Actually Teaches You</a></h3>
         <div class="post-meta"><span>Feb 12, 2026</span><span class="dot">&bull;</span><span class="rt">4 min</span></div>
       </article>
-      <article class="side-post">
+      <article class="side-post" data-category="ai">
         <span class="tag">AI &amp; Tech</span>
         <h3 style="font-family:'Playfair Display',serif;font-size:17px;font-weight:700;line-height:1.3;margin:4px 0 6px;"><a href="posts/gpt5-gemini-race.html">GPT-5, Gemini Ultra, and the Race Nobody Can Win Alone</a></h3>
         <div class="post-meta"><span>Feb 5, 2026</span><span class="dot">&bull;</span><span class="rt">7 min</span></div>
@@ -216,7 +223,7 @@
   <section class="grid-section">
     <p class="section-label">Recent Posts</p>
     <div class="post-grid">
-      <article class="post-card">
+      <article class="post-card" data-category="operations">
         <div class="card-img">&#9881;&#65039;</div>
         <span class="tag">Operations</span>
         <h3><a href="posts/sops-are-dead.html">SOPs Are Dead. Long Live Intelligent Workflows.</a></h3>
@@ -224,7 +231,7 @@
         <div class="post-meta"><span>Jan 30, 2026</span><span class="dot">&bull;</span><span class="rt">5 min</span></div>
         <br/><a href="posts/sops-are-dead.html" class="rm">Read more</a>
       </article>
-      <article class="post-card">
+      <article class="post-card" data-category="build">
         <div class="card-img">&#127759;</div>
         <span class="tag">Build in Public</span>
         <h3><a href="posts/building-ishaaqai.html">Building @IshaaqAI: What I Wish I Knew at 1,000 Followers</a></h3>
@@ -232,7 +239,7 @@
         <div class="post-meta"><span>Jan 22, 2026</span><span class="dot">&bull;</span><span class="rt">6 min</span></div>
         <br/><a href="posts/building-ishaaqai.html" class="rm">Read more</a>
       </article>
-      <article class="post-card">
+      <article class="post-card" data-category="growth">
         <div class="card-img">&#127775;</div>
         <span class="tag">Personal Growth</span>
         <h3><a href="posts/writing-in-public.html">The Compounding Returns of Writing in Public Every Week</a></h3>
@@ -248,7 +255,7 @@
     <section>
       <p class="section-label">From the Archive</p>
       <div class="featured-list">
-        <article class="list-post">
+        <article class="list-post" data-category="ai">
           <div>
             <span class="tag">AI &amp; Tech</span>
             <h3><a href="posts/prompt-engineering.html">Prompt Engineering Is a Skill. Here Is How to Actually Get Good at It.</a></h3>
@@ -257,7 +264,7 @@
           </div>
           <div class="thumb">&#129302;</div>
         </article>
-        <article class="list-post">
+        <article class="list-post" data-category="operations">
           <div>
             <span class="tag">Operations</span>
             <h3><a href="posts/token-costs.html">Why Every Ops Leader Needs to Understand Token Costs in 2026</a></h3>
@@ -266,7 +273,7 @@
           </div>
           <div class="thumb">&#128202;</div>
         </article>
-        <article class="list-post">
+        <article class="list-post" data-category="build">
           <div>
             <span class="tag">Build in Public</span>
             <h3><a href="#">The 30-Day Content Experiment That Changed My Posting Strategy</a></h3>
@@ -290,13 +297,10 @@
       <div class="sidebar-widget">
         <h4>Browse by Topic</h4>
         <div class="topics">
-          <a href="#">AI &amp; Tech</a>
-          <a href="#">Operations</a>
-          <a href="#">Build in Public</a>
-          <a href="#">Personal Growth</a>
-          <a href="#">UAE &amp; Region</a>
-          <a href="#">Strategy</a>
-          <a href="#">Tools &amp; Stacks</a>
+          <a onclick="filterPosts('ai', null)">AI &amp; Tech</a>
+          <a onclick="filterPosts('operations', null)">Operations</a>
+          <a onclick="filterPosts('build', null)">Build in Public</a>
+          <a onclick="filterPosts('growth', null)">Personal Growth</a>
         </div>
       </div>
       <div class="sidebar-widget">
@@ -313,7 +317,7 @@
   </div>
 
   <!-- ABOUT -->
-  <section class="about-strip">
+  <section class="about-strip" id="about">
     <div class="avatar">&#129489;</div>
     <div class="about-text">
       <h3>Ishaaq Aba Bagnan</h3>
@@ -333,6 +337,52 @@
   <p>&copy; 2026 Ishaaq Aba Bagnan &mdash; All rights reserved &mdash; Written in the UAE</p>
   <p style="margin-top:6px;">AI &bull; Operations &bull; Build in Public &bull; Personal Growth</p>
 </footer>
+
+<script>
+  var LABELS = {
+    all: 'All Posts',
+    ai: 'AI & Tech',
+    operations: 'Operations',
+    build: 'Build in Public',
+    growth: 'Personal Growth'
+  };
+
+  function filterPosts(cat, clickedEl) {
+    // Update nav active state
+    var navLinks = document.querySelectorAll('nav ul li a');
+    navLinks.forEach(function(link) { link.classList.remove('active'); });
+    if (clickedEl) {
+      clickedEl.classList.add('active');
+    } else if (cat === 'all') {
+      navLinks[0].classList.add('active');
+    }
+
+    // Show/hide posts
+    var posts = document.querySelectorAll('[data-category]');
+    posts.forEach(function(el) {
+      if (cat === 'all' || el.getAttribute('data-category') === cat) {
+        el.classList.remove('hidden');
+      } else {
+        el.classList.add('hidden');
+      }
+    });
+
+    // Filter banner
+    var banner = document.getElementById('filter-banner');
+    var label = document.getElementById('filter-label');
+    if (cat === 'all') {
+      banner.classList.remove('visible');
+    } else {
+      label.textContent = 'Showing: ' + LABELS[cat];
+      banner.classList.add('visible');
+    }
+
+    // Scroll to top of content
+    if (cat !== 'all') {
+      document.querySelector('.site-wrap').scrollIntoView({behavior: 'smooth'});
+    }
+  }
+</script>
 
 </body>
 </html>
