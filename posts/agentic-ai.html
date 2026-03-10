@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Age of Agentic AI: Why Your Next Hire Might Be a Software Agent &mdash; IshaaqAI</title>
+  <meta name="description" content="We are entering a new era where AI does not just answer questions -- it plans, executes, and iterates." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --ink:#1a1a1a; --ink-light:#444; --rule:#c8c0b0; --rule-light:#e8e2d8; --paper:#faf8f4; --paper-alt:#f2ede4; --accent:#b5241c; --accent-dk:#8c1a14; --tag-bg:#ece8e0; --max:1120px; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--paper); color: var(--ink); font-family: 'Source Serif 4', Georgia, serif; font-size: 17px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    a:hover { color: var(--accent); }
+    .ticker-bar { background: var(--ink); color: #fff; font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 7px 0; overflow: hidden; white-space: nowrap; }
+    .ticker-inner { display: inline-block; animation: ticker 32s linear infinite; }
+    .ticker-inner span { margin: 0 36px; }
+    @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+    .masthead { border-bottom: 4px double var(--rule); padding: 28px 24px 20px; text-align: center; max-width: var(--max); margin: 0 auto; }
+    .masthead-meta { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-light); margin-bottom: 10px; }
+    .masthead h1 { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(52px, 8vw, 92px); font-weight: 900; letter-spacing: -0.02em; line-height: 1; color: var(--ink); }
+    .masthead h1 em { font-style: italic; color: var(--accent); }
+    .masthead-sub { font-family: 'Inter', sans-serif; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-light); margin-top: 10px; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 6px 0; }
+    nav { border-bottom: 1px solid var(--rule); padding: 0 24px; max-width: var(--max); margin: 0 auto; }
+    nav ul { display: flex; list-style: none; overflow-x: auto; }
+    nav ul li a { display: block; font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-light); padding: 14px 18px; border-right: 1px solid var(--rule-light); white-space: nowrap; transition: color 0.2s, background 0.2s; }
+    nav ul li:first-child a { border-left: 1px solid var(--rule-light); }
+    nav ul li a:hover { color: var(--accent); background: var(--paper-alt); }
+    .article-wrap { max-width: 740px; margin: 0 auto; padding: 48px 24px 80px; }
+    .post-tag { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; background: var(--accent); color: #fff; padding: 3px 8px; display: inline-block; margin-bottom: 16px; }
+    .article-title { font-family: 'Playfair Display', serif; font-size: clamp(28px, 4vw, 44px); font-weight: 900; line-height: 1.15; margin-bottom: 20px; }
+    .post-meta { font-family: 'Inter', sans-serif; font-size: 12px; color: var(--ink-light); display: flex; align-items: center; gap: 8px; flex-wrap: wrap; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 10px 0; margin-bottom: 32px; }
+    .post-meta .dot { color: var(--rule); }
+    .post-meta .rt { color: var(--accent); font-weight: 600; }
+    .hero-img { width: 100%; height: 280px; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); display: flex; align-items: center; justify-content: center; font-size: 96px; margin-bottom: 36px; border: 1px solid var(--rule-light); }
+    .article-body h2 { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 700; margin: 36px 0 14px; border-bottom: 1px solid var(--rule-light); padding-bottom: 8px; }
+    .article-body p { margin-bottom: 20px; }
+    .article-body blockquote { border-left: 3px solid var(--accent); padding: 12px 20px; margin: 28px 0; background: var(--paper-alt); font-style: italic; color: var(--ink-light); }
+    .back-link { display: inline-flex; align-items: center; gap: 6px; font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 32px; }
+    .back-link::before { content: '\2190'; }
+    .back-link:hover { color: var(--accent-dk); }
+    footer { padding: 28px 24px; text-align: center; border-top: 4px double var(--rule); max-width: var(--max); margin: 0 auto; }
+    footer p { font-family: 'Inter', sans-serif; font-size: 11px; letter-spacing: 0.08em; color: var(--ink-light); }
+    .footer-brand { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 900; color: var(--ink); margin-bottom: 6px; }
+  </style>
+</head>
+<body>
+<div class="ticker-bar"><span class="ticker-inner"><span>AI &amp; Technology</span><span>&nbsp;&bull;&nbsp;</span><span>Operations &amp; Strategy</span><span>&nbsp;&bull;&nbsp;</span><span>Build in Public</span><span>&nbsp;&bull;&nbsp;</span><span>Personal Growth</span><span>&nbsp;&bull;&nbsp;</span><span>AI &amp; Technology</span><span>&nbsp;&bull;&nbsp;</span><span>Operations &amp; Strategy</span><span>&nbsp;&bull;&nbsp;</span><span>Build in Public</span><span>&nbsp;&bull;&nbsp;</span><span>Personal Growth</span><span>&nbsp;&bull;&nbsp;</span></span></div>
+<header class="masthead">
+  <p class="masthead-meta">Est. 2025 &mdash; Written in the UAE &mdash; Updated Weekly</p>
+  <h1>Ishaaq<em>AI</em></h1>
+  <p class="masthead-sub">AI &bull; Operations &bull; Build in Public &bull; Personal Growth</p>
+</header>
+<nav>
+  <ul>
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="#">AI &amp; Tech</a></li>
+    <li><a href="#">Operations</a></li>
+    <li><a href="#">Build in Public</a></li>
+    <li><a href="#">Personal Growth</a></li>
+    <li><a href="#">About</a></li>
+  </ul>
+</nav>
+<main class="article-wrap">
+  <a href="../index.html" class="back-link">Back to Home</a>
+  <span class="post-tag">AI &amp; Technology</span>
+  <h1 class="article-title">The Age of Agentic AI: Why Your Next Hire Might Be a Software Agent</h1>
+  <div class="post-meta">
+    <span>Ishaaq Aba Bagnan</span><span class="dot">&bull;</span>
+    <span>March 10, 2026</span><span class="dot">&bull;</span>
+    <span class="rt">8 min read</span>
+  </div>
+  <div class="hero-img">&#129504;</div>
+  <div class="article-body">
+    <p>Something fundamental shifted in how I think about building teams. It happened quietly, over the course of a few months of working with AI agents daily. I stopped asking "what should I automate?" and started asking "what still requires a human?" That inversion is the essence of the agentic AI era.</p>
+    <p>We are not talking about chatbots that answer questions. We are talking about software systems that receive a goal, break it down into steps, execute those steps using tools and APIs, evaluate the results, and loop until the job is done. That is not automation in the traditional sense. That is agency.</p>
+
+    <h2>What Makes an Agent Different from a Bot</h2>
+    <p>Traditional automation is brittle. You define a trigger, a set of steps, and an output. If anything falls outside those parameters, the bot fails silently or throws an error. That is fine for predictable, repetitive tasks. But most valuable work is not predictable.</p>
+    <p>An AI agent operates differently. It reasons about a goal. It selects tools. It handles edge cases by thinking through them rather than failing on them. It can send an email, read the reply, decide what to do next, update a record, and notify a team member -- all without a human touching it. The difference is judgment. Agents have a crude but functional version of it.</p>
+    <blockquote>"The question is no longer whether AI can do the task. It is whether you have given the agent the right goal, the right tools, and the right guardrails."</blockquote>
+
+    <h2>The Multi-Agent Shift</h2>
+    <p>Single agents are powerful. Multi-agent systems are transformative. The moment you can have one agent orchestrate others -- a planner delegating to a researcher, a writer, a formatter, and a publisher -- you have something that resembles a small, tireless team.</p>
+    <p>I have built pipelines where a single instruction from me results in six agents collaborating: one searches the web, one drafts content, one reviews it against a style guide, one formats it for a platform, one schedules it, and one logs the output. The whole thing runs in under three minutes. A human team doing the same would take hours.</p>
+    <p>This is not hypothetical. This is what I do on a weekly basis. The infrastructure exists today. The question is whether operations leaders are paying attention.</p>
+
+    <h2>What This Means for Operations Leaders</h2>
+    <p>If you lead an operations team in 2026 and you are not experimenting with agentic AI, you are already behind. Not because the technology is mature -- it is not, and it breaks in interesting ways -- but because your competitors who are experimenting now will have a six-month head start on what works and what does not.</p>
+    <p>The practical starting points are narrow and high-value: document processing, data enrichment, research summarisation, internal reporting, and customer triage. These are tasks where agents can take the first pass reliably and humans review only the exceptions. That ratio -- agents handling 80%, humans reviewing 20% -- is where the real productivity gains live.</p>
+
+    <h2>The Hiring Analogy Is Real</h2>
+    <p>I keep coming back to the framing in the title of this piece because it is the most honest way to describe what is happening. When you deploy an agent for a specific function -- say, competitive intelligence gathering or first-line support triage -- you are effectively adding a team member. One that works continuously, costs a fraction of a salary, and requires onboarding just like a new hire: clear goals, defined tools, documented escalation paths.</p>
+    <p>The flip side is that agents also require management. They go off-track. They hallucinate. They optimise for the wrong thing if you give them the wrong objective. The operations discipline of defining success criteria, monitoring outputs, and course-correcting applies just as much to AI agents as it does to human employees.</p>
+    <p>We are early. The tools are improving fast. The leaders who treat this moment as a genuine organisational design challenge -- not just a tech experiment -- will be the ones who look back in three years and understand why they pulled ahead. Start now. Start small. But start.</p>
+  </div>
+</main>
+<footer>
+  <p class="footer-brand">IshaaqAI</p>
+  <p>&copy; 2026 Ishaaq Aba Bagnan &mdash; All rights reserved &mdash; Written in the UAE</p>
+  <p style="margin-top:6px;">AI &bull; Operations &bull; Build in Public &bull; Personal Growth</p>
+</footer>
+</body>
+</html>
