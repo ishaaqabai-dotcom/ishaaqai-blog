@@ -3,100 +3,89 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Compounding Returns of Writing in Public Every Week &mdash; IshaaqAI</title>
-  <meta name="description" content="Writing regularly is not about going viral. It is about building a body of thinking that compounds." />
+  <title>The Compounding Returns of Writing in Public Every Week -- IshaaqAI</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root { --ink:#1a1a1a; --ink-light:#444; --rule:#c8c0b0; --rule-light:#e8e2d8; --paper:#faf8f4; --paper-alt:#f2ede4; --accent:#b5241c; --accent-dk:#8c1a14; --tag-bg:#ece8e0; --max:1120px; }
-    html { scroll-behavior: smooth; }
-    body { background: var(--paper); color: var(--ink); font-family: 'Source Serif 4', Georgia, serif; font-size: 17px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
-    a { color: inherit; text-decoration: none; }
-    a:hover { color: var(--accent); }
-    .ticker-bar { background: var(--ink); color: #fff; font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 7px 0; overflow: hidden; white-space: nowrap; }
-    .ticker-inner { display: inline-block; animation: ticker 32s linear infinite; }
-    .ticker-inner span { margin: 0 36px; }
-    @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-    .masthead { border-bottom: 4px double var(--rule); padding: 28px 24px 20px; text-align: center; max-width: var(--max); margin: 0 auto; }
-    .masthead-meta { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-light); margin-bottom: 10px; }
-    .masthead h1 { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(52px, 8vw, 92px); font-weight: 900; letter-spacing: -0.02em; line-height: 1; color: var(--ink); }
-    .masthead h1 em { font-style: italic; color: var(--accent); }
-    .masthead-sub { font-family: 'Inter', sans-serif; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-light); margin-top: 10px; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 6px 0; }
-    nav { border-bottom: 1px solid var(--rule); padding: 0 24px; max-width: var(--max); margin: 0 auto; }
-    nav ul { display: flex; list-style: none; overflow-x: auto; }
-    nav ul li a { display: block; font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-light); padding: 14px 18px; border-right: 1px solid var(--rule-light); white-space: nowrap; transition: color 0.2s, background 0.2s; }
-    nav ul li:first-child a { border-left: 1px solid var(--rule-light); }
-    nav ul li a:hover { color: var(--accent); background: var(--paper-alt); }
-    .article-wrap { max-width: 740px; margin: 0 auto; padding: 48px 24px 80px; }
-    .post-tag { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; background: var(--accent); color: #fff; padding: 3px 8px; display: inline-block; margin-bottom: 16px; }
-    .article-title { font-family: 'Playfair Display', serif; font-size: clamp(28px, 4vw, 44px); font-weight: 900; line-height: 1.15; margin-bottom: 20px; }
-    .post-meta { font-family: 'Inter', sans-serif; font-size: 12px; color: var(--ink-light); display: flex; align-items: center; gap: 8px; flex-wrap: wrap; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 10px 0; margin-bottom: 32px; }
-    .post-meta .dot { color: var(--rule); }
-    .post-meta .rt { color: var(--accent); font-weight: 600; }
-    .hero-img { width: 100%; height: 280px; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); display: flex; align-items: center; justify-content: center; font-size: 96px; margin-bottom: 36px; border: 1px solid var(--rule-light); }
-    .article-body h2 { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 700; margin: 36px 0 14px; border-bottom: 1px solid var(--rule-light); padding-bottom: 8px; }
-    .article-body p { margin-bottom: 20px; }
-    .article-body blockquote { border-left: 3px solid var(--accent); padding: 12px 20px; margin: 28px 0; background: var(--paper-alt); font-style: italic; color: var(--ink-light); }
-    .back-link { display: inline-flex; align-items: center; gap: 6px; font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 32px; }
-    .back-link::before { content: '\2190'; }
-    .back-link:hover { color: var(--accent-dk); }
-    footer { padding: 28px 24px; text-align: center; border-top: 4px double var(--rule); max-width: var(--max); margin: 0 auto; }
-    footer p { font-family: 'Inter', sans-serif; font-size: 11px; letter-spacing: 0.08em; color: var(--ink-light); }
-    .footer-brand { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 900; color: var(--ink); margin-bottom: 6px; }
+    :root { --ink: #1a1a1a; --ink-light: #444; --rule: #c8c0b0; --rule-light: #e8e2d8; --paper: #faf8f4; --paper-alt: #f2ede4; --accent: #b5241c; --max: 720px; }
+    body { background: var(--paper); color: var(--ink); font-family: 'Source Serif 4', Georgia, serif; font-size: 18px; line-height: 1.8; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; } a:hover { color: var(--accent); }
+    .site-header { border-bottom: 4px double var(--rule); padding: 18px 24px; display: flex; align-items: center; justify-content: space-between; max-width: 1120px; margin: 0 auto; }
+    .logo { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 900; } .logo em { font-style: italic; color: var(--accent); }
+    .back-link { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-light); display: flex; align-items: center; gap: 6px; }
+    .back-link::before { content: '\2190'; } .back-link:hover { color: var(--accent); }
+    .article-wrap { max-width: var(--max); margin: 0 auto; padding: 48px 24px 80px; }
+    .article-category { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; background: var(--accent); color: #fff; padding: 3px 8px; display: inline-block; margin-bottom: 18px; }
+    .article-title { font-family: 'Playfair Display', serif; font-size: clamp(28px, 5vw, 46px); font-weight: 900; line-height: 1.15; margin-bottom: 18px; }
+    .article-meta { font-family: 'Inter', sans-serif; font-size: 12px; color: var(--ink-light); display: flex; gap: 10px; flex-wrap: wrap; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 12px 0; margin-bottom: 36px; }
+    .article-meta .dot { color: var(--rule); } .article-meta .rt { color: var(--accent); font-weight: 600; }
+    .article-hero { width: 100%; height: 320px; background: linear-gradient(135deg, #1a1a2e 0%, #e8c97a 100%); display: flex; align-items: center; justify-content: center; font-size: 96px; margin-bottom: 40px; border: 1px solid var(--rule-light); }
+    .article-body h2 { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700; margin: 40px 0 14px; }
+    .article-body p { margin-bottom: 22px; }
+    .article-body p:first-child::first-letter { font-family: 'Playfair Display', serif; font-size: 72px; font-weight: 900; float: left; line-height: 0.8; margin: 8px 12px 0 0; color: var(--accent); }
+    .article-body blockquote { border-left: 4px solid var(--accent); margin: 32px 0; padding: 16px 24px; background: var(--paper-alt); font-style: italic; font-size: 19px; color: var(--ink-light); }
+    .article-body ul { margin: 0 0 22px 24px; } .article-body li { margin-bottom: 8px; }
+    .article-body strong { font-weight: 700; }
+    .article-divider { border: none; border-top: 2px solid var(--rule); margin: 48px 0; }
+    .article-footer { border-top: 2px solid var(--rule); padding-top: 32px; display: flex; align-items: center; gap: 20px; }
+    .author-avatar { width: 64px; height: 64px; border-radius: 50%; background: linear-gradient(135deg, var(--accent) 0%, #1a1a2e 100%); display: flex; align-items: center; justify-content: center; font-size: 28px; flex-shrink: 0; border: 2px solid var(--ink); }
+    .author-info h4 { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; margin-bottom: 4px; }
+    .author-info p { font-size: 13px; color: var(--ink-light); }
+    .back-nav { text-align: center; margin-top: 48px; }
+    .back-nav a { font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; border: 2px solid var(--ink); padding: 10px 28px; display: inline-block; transition: all 0.2s; }
+    .back-nav a:hover { background: var(--ink); color: #fff; }
   </style>
 </head>
 <body>
-<div class="ticker-bar"><span class="ticker-inner"><span>AI &amp; Technology</span><span>&nbsp;&bull;&nbsp;</span><span>Operations &amp; Strategy</span><span>&nbsp;&bull;&nbsp;</span><span>Build in Public</span><span>&nbsp;&bull;&nbsp;</span><span>Personal Growth</span><span>&nbsp;&bull;&nbsp;</span><span>AI &amp; Technology</span><span>&nbsp;&bull;&nbsp;</span><span>Operations &amp; Strategy</span><span>&nbsp;&bull;&nbsp;</span><span>Build in Public</span><span>&nbsp;&bull;&nbsp;</span><span>Personal Growth</span><span>&nbsp;&bull;&nbsp;</span></span></div>
-<header class="masthead">
-  <p class="masthead-meta">Est. 2025 &mdash; Written in the UAE &mdash; Updated Weekly</p>
-  <h1>Ishaaq<em>AI</em></h1>
-  <p class="masthead-sub">AI &bull; Operations &bull; Build in Public &bull; Personal Growth</p>
+<header class="site-header">
+  <a href="index.html" class="logo">Ishaaq<em>AI</em></a>
+  <a href="index.html" class="back-link">Back to Home</a>
 </header>
-<nav>
-  <ul>
-    <li><a href="../index.html">Home</a></li>
-    <li><a href="#">AI &amp; Tech</a></li>
-    <li><a href="#">Operations</a></li>
-    <li><a href="#">Build in Public</a></li>
-    <li><a href="#">Personal Growth</a></li>
-    <li><a href="#">About</a></li>
-  </ul>
-</nav>
-<main class="article-wrap">
-  <a href="../index.html" class="back-link">Back to Home</a>
-  <span class="post-tag">Personal Growth</span>
+<article class="article-wrap">
+  <span class="article-category">Personal Growth</span>
   <h1 class="article-title">The Compounding Returns of Writing in Public Every Week</h1>
-  <div class="post-meta">
+  <div class="article-meta">
     <span>Ishaaq Aba Bagnan</span><span class="dot">&bull;</span>
-    <span>Jan 15, 2026</span><span class="dot">&bull;</span>
+    <span>January 15, 2026</span><span class="dot">&bull;</span>
     <span class="rt">4 min read</span>
   </div>
-  <div class="hero-img">&#127775;</div>
+  <div class="article-hero">&#11088;</div>
   <div class="article-body">
-    <p>I want to be careful not to over-romanticise writing in public, because most of the discourse around it does exactly that. The pitch usually sounds like this: write consistently, build an audience, unlock opportunities. That is not wrong. But it is incomplete in ways that cause a lot of people to start writing in public for the wrong reasons, get disappointed when the obvious returns do not materialise quickly, and quietly stop.</p>
-    <p>The real value of writing in public is more subtle and more durable than an audience metric. It is the compounding effect that happens inside your own thinking over months and years of regular output. The audience, if it comes, is a downstream consequence of that internal compounding. It is not the mechanism.</p>
+    <p>The case for writing publicly is usually made in terms of audience growth and personal branding. Those benefits are real but they are also the slowest to arrive and the least interesting once they do. The more compelling case is the one almost nobody makes: writing in public every week is one of the highest-leverage thinking tools available to anyone doing knowledge work, and the returns on it compound in ways that are genuinely difficult to anticipate from the starting line.</p>
 
-    <h2>Writing Clarifies Thinking -- but Only If You Let It</h2>
-    <p>There is a version of writing in public that does not improve your thinking at all. It is the version where you write summaries of things you have already read, share takes you already held, and produce content that confirms your existing views for an audience that shares those views. That kind of writing is comfortable. It is also intellectually inert.</p>
-    <p>The writing that compounds is the writing that exposes you to friction. Writing an argument clearly enough to publish it reveals the gaps in the argument. Writing a prediction publicly creates accountability. Writing about a mistake you made requires you to actually understand what went wrong, not just feel bad about it. That friction is the mechanism. Without it, writing in public is performance, not practice.</p>
-    <blockquote>"You do not write to share what you think. You write to discover what you think. The sharing is secondary."</blockquote>
+    <h2>Writing Forces Thinking to Completion</h2>
+    <p>Most of us walk around with ideas in a permanently half-formed state. We have a sense of what we think about something. We could talk about it in broad strokes at a dinner table. But the moment you sit down to write it for an audience that will actually read it, you discover that the half-formed idea has gaps you did not know were there.</p>
+    <p>Writing publicly sets a higher standard than writing privately because you know someone will read it and hold it to account. That accountability forces the thinking to completion. The gaps get filled. The contradictions get resolved. The vague intuition becomes an actual position. This is not a side effect of writing -- it is the primary value.</p>
 
-    <h2>The Compounding That Actually Happens</h2>
-    <p>After two years of weekly writing, here is what I can point to as real compounding returns. My ability to structure an argument has measurably improved -- I can feel it in how I prepare for presentations and how I frame decisions for my team. My thinking has a searchable record: when I encounter a problem I have thought about before, I can find what I wrote rather than re-deriving it from scratch. And the body of work has become a filter: people who reach out to me after reading several pieces tend to be people I want to talk to, because they have already self-selected based on what I actually think.</p>
-    <p>None of these returns show up in follower counts or engagement metrics. All of them are genuinely valuable. And all of them emerged from the practice, not from optimising for the platform.</p>
+    <blockquote>"I write to find out what I think. The audience is the accountability mechanism that ensures I actually finish the thought."</blockquote>
 
-    <h2>What to Do With the Slow Periods</h2>
-    <p>There will be extended periods where you publish consistently and nothing seems to happen. The numbers stay flat. The posts land quietly. Nobody shares or responds. This is normal. It is also where most people stop.</p>
-    <p>The advice I keep coming back to for the slow periods is to change the metric you are tracking. Instead of watching follower counts or impression numbers, track whether you are thinking more clearly than you were three months ago. Track whether you find it easier to articulate a complex idea in a short post than you did six months ago. Track whether your writing is becoming more specific, more precise, more honest over time.</p>
-    <p>Those are the metrics that predict long-term value. The platform metrics tend to follow them eventually -- but even if they never do, the internal compounding is worth the practice.</p>
+    <h2>The Surface Area Effect</h2>
+    <p>Every piece of public writing is a permanent, searchable, shareable artefact that can connect you to the right person at any time in the future -- including times when you are asleep, in a meeting, or not thinking about it at all. A single post from eight months ago has introduced me to collaborators, led to speaking invitations, and started conversations that became meaningful professional relationships.</p>
+    <p>You cannot predict which piece will land with whom or when. What you can control is the size of the surface area. More writing, published consistently over time, creates more surface area. More surface area creates more chance encounters with the right people. This is the mechanism behind the cliche that consistent creators seem to get lucky more often than everyone else. It is not luck -- it is surface area.</p>
+
+    <h2>The Compounding Clarity Effect</h2>
+    <p>The second-order benefit is less visible but more durable. When you write publicly about a topic every week for a year, you do not just produce fifty-two pieces of content. You develop a living, tested, refined body of thinking on that topic. Ideas that seemed correct in week four get challenged and revised by week eighteen. Frameworks that were fuzzy become precise. Positions that were tentative become convictions -- or get abandoned in favour of better ones.</p>
+    <ul>
+      <li>Your thinking on the topic becomes faster and more reliable because it has been stress-tested publicly.</li>
+      <li>You develop an archive you can reference, link to, and build on rather than reinventing the same ideas repeatedly.</li>
+      <li>The depth of your understanding becomes visible to anyone who reads across your body of work -- which is a form of credibility that no bio or credential can replicate.</li>
+    </ul>
+
+    <h2>The Practical Constraint</h2>
+    <p>None of this requires long-form essays every week. The constraint is regularity and genuine thought, not word count. A five-hundred-word post written with honest thinking beats a three-thousand-word piece that says nothing new. The question to ask before hitting publish is not "is this long enough?" but "does this contain at least one thing I actually believe that is worth believing?"</p>
+    <p>If yes, publish it. The compounding starts the moment you do.</p>
+    <hr class="article-divider" />
+    <p style="font-size:15px;color:var(--ink-light);">Writing publicly every week about AI, operations, and building. Subscribe to follow along every Monday.</p>
   </div>
-</main>
-<footer>
-  <p class="footer-brand">IshaaqAI</p>
-  <p>&copy; 2026 Ishaaq Aba Bagnan &mdash; All rights reserved &mdash; Written in the UAE</p>
-  <p style="margin-top:6px;">AI &bull; Operations &bull; Build in Public &bull; Personal Growth</p>
-</footer>
+  <div class="article-footer">
+    <div class="author-avatar">&#129489;</div>
+    <div class="author-info">
+      <h4>Ishaaq Aba Bagnan</h4>
+      <p>Operations leader and AI practitioner writing from the UAE. Follow on <a href="https://twitter.com/ishaaqai" style="color:var(--accent);">X @IshaaqAI</a>.</p>
+    </div>
+  </div>
+  <div class="back-nav"><a href="index.html">Back to All Posts</a></div>
+</article>
 </body>
 </html>
