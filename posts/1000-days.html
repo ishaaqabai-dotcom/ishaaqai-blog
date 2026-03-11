@@ -1,101 +1,66 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>What 1,000 Days of Consistent Output Actually Teaches You &mdash; IshaaqAI</title>
-  <meta name="description" content="There is no shortcut to 1,000 days. But there is a lot to learn from living through them." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root { --ink:#1a1a1a; --ink-light:#444; --rule:#c8c0b0; --rule-light:#e8e2d8; --paper:#faf8f4; --paper-alt:#f2ede4; --accent:#b5241c; --accent-dk:#8c1a14; --tag-bg:#ece8e0; --max:1120px; }
-    html { scroll-behavior: smooth; }
-    body { background: var(--paper); color: var(--ink); font-family: 'Source Serif 4', Georgia, serif; font-size: 17px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
-    a { color: inherit; text-decoration: none; }
-    a:hover { color: var(--accent); }
-    .ticker-bar { background: var(--ink); color: #fff; font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 7px 0; overflow: hidden; white-space: nowrap; }
-    .ticker-inner { display: inline-block; animation: ticker 32s linear infinite; }
-    .ticker-inner span { margin: 0 36px; }
-    @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-    .masthead { border-bottom: 4px double var(--rule); padding: 28px 24px 20px; text-align: center; max-width: var(--max); margin: 0 auto; }
-    .masthead-meta { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-light); margin-bottom: 10px; }
-    .masthead h1 { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(52px, 8vw, 92px); font-weight: 900; letter-spacing: -0.02em; line-height: 1; color: var(--ink); }
-    .masthead h1 em { font-style: italic; color: var(--accent); }
-    .masthead-sub { font-family: 'Inter', sans-serif; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-light); margin-top: 10px; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 6px 0; }
-    nav { border-bottom: 1px solid var(--rule); padding: 0 24px; max-width: var(--max); margin: 0 auto; }
-    nav ul { display: flex; list-style: none; overflow-x: auto; }
-    nav ul li a { display: block; font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-light); padding: 14px 18px; border-right: 1px solid var(--rule-light); white-space: nowrap; transition: color 0.2s, background 0.2s; }
-    nav ul li:first-child a { border-left: 1px solid var(--rule-light); }
-    nav ul li a:hover { color: var(--accent); background: var(--paper-alt); }
-    .article-wrap { max-width: 740px; margin: 0 auto; padding: 48px 24px 80px; }
-    .post-tag { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; background: var(--accent); color: #fff; padding: 3px 8px; display: inline-block; margin-bottom: 16px; }
-    .article-title { font-family: 'Playfair Display', serif; font-size: clamp(28px, 4vw, 44px); font-weight: 900; line-height: 1.15; margin-bottom: 20px; }
-    .post-meta { font-family: 'Inter', sans-serif; font-size: 12px; color: var(--ink-light); display: flex; align-items: center; gap: 8px; flex-wrap: wrap; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 10px 0; margin-bottom: 32px; }
-    .post-meta .dot { color: var(--rule); }
-    .post-meta .rt { color: var(--accent); font-weight: 600; }
-    .hero-img { width: 100%; height: 280px; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); display: flex; align-items: center; justify-content: center; font-size: 96px; margin-bottom: 36px; border: 1px solid var(--rule-light); }
-    .article-body h2 { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 700; margin: 36px 0 14px; border-bottom: 1px solid var(--rule-light); padding-bottom: 8px; }
-    .article-body p { margin-bottom: 20px; }
-    .article-body blockquote { border-left: 3px solid var(--accent); padding: 12px 20px; margin: 28px 0; background: var(--paper-alt); font-style: italic; color: var(--ink-light); }
-    .back-link { display: inline-flex; align-items: center; gap: 6px; font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 32px; }
-    .back-link::before { content: '\2190'; }
-    .back-link:hover { color: var(--accent-dk); }
-    footer { padding: 28px 24px; text-align: center; border-top: 4px double var(--rule); max-width: var(--max); margin: 0 auto; }
-    footer p { font-family: 'Inter', sans-serif; font-size: 11px; letter-spacing: 0.08em; color: var(--ink-light); }
-    .footer-brand { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 900; color: var(--ink); margin-bottom: 6px; }
-  </style>
-</head>
-<body>
-<div class="ticker-bar"><span class="ticker-inner"><span>AI &amp; Technology</span><span>&nbsp;&bull;&nbsp;</span><span>Operations &amp; Strategy</span><span>&nbsp;&bull;&nbsp;</span><span>Build in Public</span><span>&nbsp;&bull;&nbsp;</span><span>Personal Growth</span><span>&nbsp;&bull;&nbsp;</span><span>AI &amp; Technology</span><span>&nbsp;&bull;&nbsp;</span><span>Operations &amp; Strategy</span><span>&nbsp;&bull;&nbsp;</span><span>Build in Public</span><span>&nbsp;&bull;&nbsp;</span><span>Personal Growth</span><span>&nbsp;&bull;&nbsp;</span></span></div>
-<header class="masthead">
-  <p class="masthead-meta">Est. 2025 &mdash; Written in the UAE &mdash; Updated Weekly</p>
-  <h1>Ishaaq<em>AI</em></h1>
-  <p class="masthead-sub">AI &bull; Operations &bull; Build in Public &bull; Personal Growth</p>
-</header>
-<nav>
-  <ul>
-    <li><a href="../index.html">Home</a></li>
-    <li><a href="#">AI &amp; Tech</a></li>
-    <li><a href="#">Operations</a></li>
-    <li><a href="#">Build in Public</a></li>
-    <li><a href="#">Personal Growth</a></li>
-    <li><a href="#">About</a></li>
-  </ul>
-</nav>
-<main class="article-wrap">
-  <a href="../index.html" class="back-link">Back to Home</a>
-  <span class="post-tag">Personal Growth</span>
-  <h1 class="article-title">What 1,000 Days of Consistent Output Actually Teaches You</h1>
-  <div class="post-meta">
-    <span>Ishaaq Aba Bagnan</span><span class="dot">&bull;</span>
-    <span>Feb 12, 2026</span><span class="dot">&bull;</span>
-    <span class="rt">4 min read</span>
-  </div>
-  <div class="hero-img">&#128197;</div>
-  <div class="article-body">
-    <p>I did not set out to do anything for 1,000 days. The milestone crept up on me. What started as a decision to publish something every week -- an observation, a thread, a short essay -- turned into a practice, and the practice turned into something I cannot easily separate from how I think. Here is what I actually learned.</p>
-    <p>I want to be clear about what 1,000 days of consistent output is not. It is not 1,000 days of great output. A lot of it was average. Some of it was bad. The consistency is the point -- not the quality of each individual piece, but the accumulated effect of showing up repeatedly over a long enough period that the practice becomes default rather than effortful.</p>
-
-    <h2>The First 90 Days Are the Hardest -- and the Least Important</h2>
-    <p>Everyone who starts a creative or intellectual practice talks about the difficulty of the first 90 days. The blank page, the imposter syndrome, the feeling that nothing you produce is worth sharing. That is all real. But I have come to think the first 90 days are actually the least important phase.</p>
-    <p>The genuinely hard phase is days 200 to 400. The initial novelty has worn off. You have published enough to have developed standards, which means you are now more aware than ever of how often your output falls short of them. The external validation that might have sustained you in the early days has settled into background noise. This is where most people quietly stop. Not dramatically -- they just start publishing less frequently, then monthly, then occasionally, then not at all.</p>
-    <blockquote>"Consistency is not about willpower. It is about designing your environment so that the default action is to show up."</blockquote>
-
-    <h2>What Compounds and What Does Not</h2>
-    <p>The metaphor of compounding gets applied to a lot of things that do not actually compound. Consistent output does compound, but not in the way most people expect. It is not that each piece builds on the last in a linear way. It is that the practice of thinking clearly, writing regularly, and publishing publicly creates a feedback loop that gradually improves the quality of your thinking -- not just your writing.</p>
-    <p>After about 18 months, I noticed I was approaching problems differently. I was forming clearer hypotheses, identifying the crux of disagreements faster, and communicating decisions more precisely to my team. I do not think those improvements came from reading more or taking courses. I think they came from the discipline of having to articulate my thinking clearly enough to publish it, week after week.</p>
-
-    <h2>The Unexpected Returns</h2>
-    <p>The most valuable things that came from 1,000 days of output were not the ones I could have predicted at day one. I did not predict that a particular essay would lead to a conversation that led to a professional opportunity. I did not predict that the discipline of writing would improve my ability to give feedback and run meetings. I did not predict that the body of work itself would become a reference -- something I could point people to rather than re-explaining my thinking from scratch.</p>
-    <p>These are the real returns: serendipitous connections, transferable skills, and accumulated evidence of how you think. None of them show up in vanity metrics. All of them compound over time. Start now. Do not wait until you have something important to say. The importance emerges from the practice.</p>
-  </div>
-</main>
-<footer>
-  <p class="footer-brand">IshaaqAI</p>
-  <p>&copy; 2026 Ishaaq Aba Bagnan &mdash; All rights reserved &mdash; Written in the UAE</p>
-  <p style="margin-top:6px;">AI &bull; Operations &bull; Build in Public &bull; Personal Growth</p>
-</footer>
-</body>
-</html>
+PCFET0NUWVBFIGh0bWw+CjxodG1sIGxhbmc9ImVuIj4KPGhlYWQ+CiAgPG1l
+dGEgY2hhcnNldD0iVVRGLTgiIC8+CiAgPG1ldGEgbmFtZT0idmlld3BvcnQi
+IGNvbnRlbnQ9IndpZHRoPWRldmljZS13aWR0aCwgaW5pdGlhbC1zY2FsZT0x
+LjAiIC8+CiAgPHRpdGxlPldoYXQgMSwwMDAgRGF5cyBvZiBDb25zaXN0ZW50
+IE91dHB1dCBBY3R1YWxseSBUZWFjaGVzIFlvdSAmbWRhc2g7IElzaGFhcUFJ
+PC90aXRsZT4KICA8bWV0YSBuYW1lPSJkZXNjcmlwdGlvbiIgY29udGVudD0i
+VGhlcmUgaXMgbm8gc2hvcnRjdXQgdG8gMSwwMDAgZGF5cy4gQnV0IHRoZXJl
+IGlzIGEgbG90IHRvIGxlYXJuIGZyb20gbGl2aW5nIHRocm91Z2ggdGhlbS4i
+IC8+CiAgPGxpbmsgcmVsPSJwcmVjb25uZWN0IiBocmVmPSJodHRwczovL2Zv
+bnRzLmdvb2dsZWFwaXMuY29tIiAvPgogIDxsaW5rIHJlbD0icHJlY29ubmVj
+dCIgaHJlZj0iaHR0cHM6Ly9mb250cy5nc3RhdGljLmNvbSIgY3Jvc3Nvcmln
+aW4gLz4KICA8bGluayBocmVmPSJodHRwczovL2ZvbnRzLmdvb2dsZWFwaXMu
+Y29tL2NzczI/ZmFtaWx5PVBsYXlmYWlyK0Rpc3BsYXk6aXRhbCx3Z2h0QDAs
+NDAwOzAsNzAwOzAsOTAwOzEsNDAwOzEsNzAwJmZhbWlseT1Tb3VyY2UrU2Vy
+aWYrNDppdGFsLG9wc3osd2dodEAwLDguLjYwLDMwMDswLDguLjYwLDQwMDsw
+LDguLjYwLDYwMDsxLDguLjYwLDMwMDsxLDguLjYwLDQwMCZmYW1pbHk9SW50
+ZXI6d2dodEA0MDA7NTAwOzYwMCZkaXNwbGF5PXN3YXAiIHJlbD0ic3R5bGVz
+aGVldCIgLz4KICA8c3R5bGU+CiAgICAqLCAqOjpiZWZvcmUsICo6OmFmdGVy
+IHsgYm94LXNpemluZzogYm9yZGVyLWJveDsgbWFyZ2luOiAwOyBwYWRkaW5n
+OiAwOyB9CiAgICA6cm9vdCB7IC0taW5rOiMxYTFhMWE7IC0taW5rLWxpZ2h0
+OiM0NDQ7IC0tcnVsZTojYzhjMGIwOyAtLXJ1bGUtbGlnaHQ6I2U4ZTJkODsg
+LS1wYXBlcjojZmFmOGY0OyAtLXBhcGVyLWFsdDojZjJlZGU0OyAtLWFjY2Vu
+dDojYjUyNDFjOyAtLWFjY2VudC1kazojOGMxYTE0OyAtLXRhZy1iZzojZWNl
+OGUwOyAtLW1heDoxMTIwcHg7IH0KICAgIGh0bWwgeyBzY3JvbGwtYmVoYXZp
+b3I6IHNtb290aDsgfQogICAgYm9keSB7IGJhY2tncm91bmQ6IHZhcigtLXBh
+cGVyKTsgY29sb3I6IHZhcigtLWluayk7IGZvbnQtZmFtaWx5OiAnU291cmNl
+IFNlcmlmIDQnLCBHZW9yZ2lhLCBzZXJpZjsgZm9udC1zaXplOiAxN3B4OyBs
+aW5lLWhlaWdodDogMS43OyAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBhbnRp
+YWxpYXNlZDsgfQogICAgYSB7IGNvbG9yOiBpbmhlcml0OyB0ZXh0LWRlY29y
+YXRpb246IG5vbmU7IH0KICAgIGE6aG92ZXIgeyBjb2xvcjogdmFyKC0tYWNj
+ZW50KTsgfQogICAgLnRpY2tlci1iYXIgeyBiYWNrZ3JvdW5kOiB2YXIoLS1p
+bmspOyBjb2xvcjogI2ZmZjsgZm9udC1mYW1pbHk6ICdJbnRlcicsIHNhbnMt
+c2VyaWY7IGZvbnQtc2l6ZTogMTFweDsgZm9udC13ZWlnaHQ6IDYwMDsgbGV0
+dGVyLXNwYWNpbmc6IDAuMDhlbTsgdGV4dC10cmFuc2Zvcm06IHVwcGVyY2Fz
+ZTsgcGFkZGluZzogN3B4IDA7IG92ZXJmbG93OiBoaWRkZW47IHdoaXRlLXNw
+YWNlOiBub3dyYXA7IH0KICAgIC50aWNrZXItaW5uZXIgeyBkaXNwbGF5OiBp
+bmxpbmUtYmxvY2s7IGFuaW1hdGlvbjogdGlja2VyIDMycyBsaW5lYXIgaW5m
+aW5pdGU7IH0KICAgIC50aWNrZXItaW5uZXIgc3BhbiB7IG1hcmdpbjogMCAz
+NnB4OyB9CiAgICBAa2V5ZnJhbWVzIHRpY2tlciB7IDAlIHsgdHJhbnNmb3Jt
+OiB0cmFuc2xhdGVYKDApOyB9IDEwMCUgeyB0cmFuc2Zvcm06IHRyYW5zbGF0
+ZVgoLTUwJSk7IH0gfQogICAgLm1hc3RoZWFkIHsgYm9yZGVyLWJvdHRvbTog
+NHB4IGRvdWJsZSB2YXIoLS1ydWxlKTsgcGFkZGluZzogMjhweCAyNHB4IDIw
+cHg7IHRleHQtYWxpZ246IGNlbnRlcjsgbWF4LXdpZHRoOiB2YXIoLS1tYXgp
+OyBtYXJnaW46IDAgYXV0bzsgfQogICAgLm1hc3RoZWFkLW1ldGEgeyBmb250
+LWZhbWlseTogJ0ludGVyJywgc2Fucy1zZXJpZjsgZm9udC1zaXplOiAxMXB4
+OyBmb250LXdlaWdodDogNTAwOyBsZXR0ZXItc3BhY2luZzogMC4xMmVtOyB0
+ZXh0LXRyYW5zZm9ybTogdXBwZXJjYXNlOyBjb2xvcjogdmFyKC0taW5rLWxp
+Z2h0KTsgbWFyZ2luLWJvdHRvbTogMTBweDsgfQogICAgLm1hc3RoZWFkIGgx
+IHsgZm9udC1mYW1pbHk6ICdQbGF5ZmFpciBEaXNwbGF5JywgR2VvcmdpYSwg
+c2VyaWY7IGZvbnQtc2l6ZTogY2xhbXAoNTJweCwgOHZ3LCA5MnB4KTsgZm9u
+dC13ZWlnaHQ6IDkwMDsgbGV0dGVyLXNwYWNpbmc6IC0wLjAyZW07IGxpbmUt
+aGVpZ2h0OiAxOyBjb2xvcjogdmFyKC0taW5rKTsgfQogICAgLm1hc3RoZWFk
+IGgxIGVtIHsgZm9udC1zdHlsZTogaXRhbGljOyBjb2xvcjogdmFyKC0tYWNj
+ZW50KTsgfQogICAgLm1hc3RoZWFkLXN1YiB7IGZvbnQtZmFtaWx5OiAnSW50
+ZXInLCBzYW5zLXNlcmlmOyBmb250LXNpemU6IDEycHg7IGxldHRlci1zcGFj
+aW5nOiAwLjE0ZW07IHRleHQtdHJhbnNmb3JtOiB1cHBlcmNhc2U7IGNvbG9y
+OiB2YXIoLS1pbmstbGlnaHQpOyBtYXJnaW4tdG9wOiAxMHB4OyBib3JkZXIt
+dG9wOiAxcHggc29saWQgdmFyKC0tcnVsZSk7IGJvcmRlci1ib3R0b206IDFw
+eCBzb2xpZCB2YXIoLS1ydWxlKTsgcGFkZGluZzogNnB4IDA7IH0KICAgIG5h
+diB7IGJvcmRlci1ib3R0b206IDFweCBzb2xpZCB2YXIoLS1ydWxlKTsgcGFk
+ZGluZzogMCAyNHB4OyBtYXgtd2lkdGg6IHZhcigtLW1heCk7IG1hcmdpbjog
+MCBhdXRvOyB9CiAgICBuYXYgdWwgeyBkaXNwbGF5OiBmbGV4OyBsaXN0LXN0
+eWxlOiBub25lOyBvdmVyZmxvdy14OiBhdXRvOyB9CiAgICBuYXYgdWwgbGkg
+YSB7IGRpc3BsYXk6IGJsb2NrOyBmb250LWZhbWlseTogJ0ludGVyJywgc2Fu
+cy1zZXJpZjsgZm9udC1zaXplOiAxMnB4OyBmb250LXdlaWdodDogNjAwOyBs
+ZXR0ZXItc3BhY2luZzogMC4xZW07IHRleHQ...
