@@ -77,21 +77,17 @@
   <div class="article-body">
     <p>Last month I set myself a constraint: design and deploy a working five-agent automation system in 48 hours. No shortcuts, no pre-built templates. Just a goal, a whiteboard, and a weekend. Here is exactly what I built and what I learned along the way.</p>
     <p>The use case was content operations -- specifically the pipeline from raw topic idea to published post with share-ready social copy. It sounds simple. It is not. There are at least a dozen handoffs, judgment calls, and format transforms involved. I wanted agents to handle all of them.</p>
-
     <h2>Hour 0-8: Designing the System Before Touching Code</h2>
     <p>The biggest mistake people make when building multi-agent systems is jumping straight into implementation. The second biggest mistake is designing the agents first instead of the workflow. I did neither. I started with the output: what does a finished, published post with share copy look like? Then I worked backwards.</p>
     <p>By hour three I had a clear map: Agent 1 researches the topic and produces a structured brief. Agent 2 writes a first draft from that brief. Agent 3 reviews the draft against a style guide and returns edits. Agent 4 formats the final article into HTML. Agent 5 generates platform-specific social copy from the published piece. Five agents. Five distinct responsibilities. Clean handoffs between each.</p>
     <blockquote>"Design the workflow first. Then design the agents. Most people do it backwards and wonder why their system falls apart at the seams."</blockquote>
-
     <h2>Hour 8-24: Building and Wiring</h2>
     <p>The build phase was faster than I expected -- and harder than I expected, but in different places. The individual agents were straightforward to configure. The hard part was the data contracts between them. What exactly does Agent 1 pass to Agent 2? In what format? What happens if Agent 3 sends back a rejection rather than edits?</p>
     <p>I spent most of this phase writing what I call "interface specs" -- short documents describing what each agent receives, what it must return, and what error states it can emit. This turned out to be the highest-leverage work of the entire 48 hours. Every time something broke in testing, I could trace it directly back to a missing or ambiguous interface spec.</p>
     <p>By hour 24, three of the five agents were working end-to-end. Agent 4 (the HTML formatter) kept hallucinating CSS that did not exist in my stylesheet. Agent 5 (social copy) was writing LinkedIn posts that sounded like press releases. Both were fixable with better prompts and clearer output constraints.</p>
-
     <h2>Hour 24-48: Testing, Fixing, Shipping</h2>
     <p>I ran the full pipeline twelve times over the final 24 hours, each time with a different topic. The failure rate started at around 40% -- meaning at least one agent in the chain produced output that required human intervention. By the end, I had it down to under 10%, and most of those failures were in Agent 3, the reviewer, which occasionally got overly aggressive with edits and broke the voice of the piece.</p>
     <p>The lesson there: reviewer agents need tighter constraints than writer agents. Give them a rubric, not open-ended latitude.</p>
-
     <h2>What I Would Do Differently</h2>
     <p>Three things. First, I would write the interface specs before touching any agent configuration -- even before mapping the workflow. Second, I would build a shared logging layer from the start rather than bolting it on at the end. Third, I would plan for human-in-the-loop checkpoints explicitly rather than assuming I could remove them later.</p>
     <p>The 48-hour constraint was artificial, but it was useful. It forced ruthless prioritisation and prevented me from over-engineering early. The system I shipped is not perfect, but it runs. And running imperfectly beats designing perfectly every time.</p>
