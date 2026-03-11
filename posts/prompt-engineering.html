@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Prompt Engineering Is a Skill. Here Is How to Actually Get Good at It. &mdash; IshaaqAI</title>
-  <meta name="description" content="Most people think prompt engineering is about writing clever sentences." />
+  <title>How I Built a 5-Agent Automation in 48 Hours &mdash; IshaaqAI</title>
+  <meta name="description" content="A real behind-the-scenes walkthrough of designing, wiring, and deploying a multi-agent automation system." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -66,35 +66,31 @@
 </nav>
 <main class="article-wrap">
   <a href="../index.html" class="back-link">Back to Home</a>
-  <span class="post-tag">AI &amp; Tech</span>
-  <h1 class="article-title">Prompt Engineering Is a Skill. Here Is How to Actually Get Good at It.</h1>
+  <span class="post-tag">Build in Public</span>
+  <h1 class="article-title">How I Built a 5-Agent Automation in 48 Hours</h1>
   <div class="post-meta">
     <span>Ishaaq Aba Bagnan</span><span class="dot">&bull;</span>
-    <span>Jan 8, 2026</span><span class="dot">&bull;</span>
-    <span class="rt">9 min read</span>
+    <span>Feb 28, 2026</span><span class="dot">&bull;</span>
+    <span class="rt">5 min read</span>
   </div>
-  <div class="hero-img">&#129302;</div>
+  <div class="hero-img">&#128296;</div>
   <div class="article-body">
-    <p>Most people's understanding of prompt engineering stops at "write better instructions." That is like saying the key to programming is "write better code." It is true, technically, but it tells you nothing useful about how to actually do it. Prompt engineering is a genuine technical skill with learnable components, and it is misunderstood in ways that hold back the people who need it most.</p>
-    <p>Let me be specific about what I mean by the skill. Prompt engineering, done well, requires an understanding of how language models process context, where they are prone to failure, how their outputs change with temperature and formatting, and how to structure multi-step interactions so each step sets up the next. That is a non-trivial body of knowledge. Here is how to actually build it.</p>
-
-    <h2>Understand the Context Window First</h2>
-    <p>Before you worry about the wording of your prompt, understand the container it lives in. A language model processes everything in its context window simultaneously -- your instructions, any examples you provide, any retrieved documents, the conversation history, and its own prior outputs. The relative position and salience of each element matters.</p>
-    <p>In practice, this means two things. First, the most important instructions belong at the beginning and at the end of your prompt -- recency and primacy both have measurable effects on model behaviour. Second, long, dense context windows dilute attention. If you pack 10,000 tokens of background documents into a context and then ask a specific question about a specific detail, the model may miss it. Structure your context so the relevant information is proximate to the question.</p>
-    <blockquote>"Prompt engineering is not about magic words. It is about understanding that you are communicating with a system that has specific, learnable behaviours -- and learning them."</blockquote>
-
-    <h2>Work Backwards from Failure Modes</h2>
-    <p>The fastest way to improve your prompting is to study how and why your current prompts fail. Not just "the output was wrong" but specifically: was the output wrong because the model misunderstood the task, because it lacked necessary information, because it was overconstrained by the format you specified, or because it made a plausible but incorrect inference?</p>
-    <p>Each failure type has a different fix. Misunderstood task: add a concrete example of the desired output. Missing information: ensure all necessary context is in the prompt or retrievable by the model. Format overconstrain: loosen the output specification and describe the goal rather than the format. Incorrect inference: add explicit reasoning steps, ask the model to show its work before giving a final answer.</p>
-    <p>This diagnostic approach is more productive than iterating on wording until something works. Understand why it failed before deciding what to change.</p>
-
-    <h2>The Role of Examples</h2>
-    <p>Few-shot prompting -- providing examples of the input-output behaviour you want -- is one of the most reliable techniques in prompt engineering, and one of the most underused. A single well-chosen example can communicate a pattern more effectively than three paragraphs of instructions.</p>
-    <p>The key to good examples is not quantity but diversity. One example that captures the core pattern is often enough. Two examples that look superficially similar but represent different edge cases are more valuable than five examples of the same type. And negative examples -- showing what output you do not want -- can be as useful as positive ones for clarifying the decision boundary.</p>
-
-    <h2>Chain of Thought and Why It Matters</h2>
-    <p>For any task involving multi-step reasoning -- analysis, calculation, planning, diagnosis -- asking the model to reason through the steps before giving a final answer consistently improves output quality. This is not a trick. It works because it forces the model to allocate tokens to the reasoning process, making the intermediate steps available for the final answer to build on.</p>
-    <p>The practical implementation is simple: add "Think through this step by step before giving your final answer" or "Show your reasoning" to your prompt. For complex tasks, specify the steps explicitly: "First identify the key issue. Then list three possible causes. Then evaluate each cause against the available evidence. Then give your conclusion." Structure the reasoning process, do not just ask for it. That is where the skill actually lives.</p>
+    <p>Last month I set myself a constraint: design and deploy a working five-agent automation system in 48 hours. No shortcuts, no pre-built templates. Just a goal, a whiteboard, and a weekend. Here is exactly what I built and what I learned along the way.</p>
+    <p>The use case was content operations -- specifically the pipeline from raw topic idea to published post with share-ready social copy. It sounds simple. It is not. There are at least a dozen handoffs, judgment calls, and format transforms involved. I wanted agents to handle all of them.</p>
+    <h2>Hour 0-8: Designing the System Before Touching Code</h2>
+    <p>The biggest mistake people make when building multi-agent systems is jumping straight into implementation. The second biggest mistake is designing the agents first instead of the workflow. I did neither. I started with the output: what does a finished, published post with share copy look like? Then I worked backwards.</p>
+    <p>By hour three I had a clear map: Agent 1 researches the topic and produces a structured brief. Agent 2 writes a first draft from that brief. Agent 3 reviews the draft against a style guide and returns edits. Agent 4 formats the final article into HTML. Agent 5 generates platform-specific social copy from the published piece. Five agents. Five distinct responsibilities. Clean handoffs between each.</p>
+    <blockquote>"Design the workflow first. Then design the agents. Most people do it backwards and wonder why their system falls apart at the seams."</blockquote>
+    <h2>Hour 8-24: Building and Wiring</h2>
+    <p>The build phase was faster than I expected -- and harder than I expected, but in different places. The individual agents were straightforward to configure. The hard part was the data contracts between them. What exactly does Agent 1 pass to Agent 2? In what format? What happens if Agent 3 sends back a rejection rather than edits?</p>
+    <p>I spent most of this phase writing what I call "interface specs" -- short documents describing what each agent receives, what it must return, and what error states it can emit. This turned out to be the highest-leverage work of the entire 48 hours. Every time something broke in testing, I could trace it directly back to a missing or ambiguous interface spec.</p>
+    <p>By hour 24, three of the five agents were working end-to-end. Agent 4 (the HTML formatter) kept hallucinating CSS that did not exist in my stylesheet. Agent 5 (social copy) was writing LinkedIn posts that sounded like press releases. Both were fixable with better prompts and clearer output constraints.</p>
+    <h2>Hour 24-48: Testing, Fixing, Shipping</h2>
+    <p>I ran the full pipeline twelve times over the final 24 hours, each time with a different topic. The failure rate started at around 40% -- meaning at least one agent in the chain produced output that required human intervention. By the end, I had it down to under 10%, and most of those failures were in Agent 3, the reviewer, which occasionally got overly aggressive with edits and broke the voice of the piece.</p>
+    <p>The lesson there: reviewer agents need tighter constraints than writer agents. Give them a rubric, not open-ended latitude.</p>
+    <h2>What I Would Do Differently</h2>
+    <p>Three things. First, I would write the interface specs before touching any agent configuration -- even before mapping the workflow. Second, I would build a shared logging layer from the start rather than bolting it on at the end. Third, I would plan for human-in-the-loop checkpoints explicitly rather than assuming I could remove them later.</p>
+    <p>The 48-hour constraint was artificial, but it was useful. It forced ruthless prioritisation and prevented me from over-engineering early. The system I shipped is not perfect, but it runs. And running imperfectly beats designing perfectly every time.</p>
   </div>
 </main>
 <footer>
