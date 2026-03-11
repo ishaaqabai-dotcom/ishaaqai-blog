@@ -1,91 +1,66 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Compounding Returns of Writing in Public Every Week -- IshaaqAI</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root { --ink: #1a1a1a; --ink-light: #444; --rule: #c8c0b0; --rule-light: #e8e2d8; --paper: #faf8f4; --paper-alt: #f2ede4; --accent: #b5241c; --max: 720px; }
-    body { background: var(--paper); color: var(--ink); font-family: 'Source Serif 4', Georgia, serif; font-size: 18px; line-height: 1.8; -webkit-font-smoothing: antialiased; }
-    a { color: inherit; text-decoration: none; } a:hover { color: var(--accent); }
-    .site-header { border-bottom: 4px double var(--rule); padding: 18px 24px; display: flex; align-items: center; justify-content: space-between; max-width: 1120px; margin: 0 auto; }
-    .logo { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 900; } .logo em { font-style: italic; color: var(--accent); }
-    .back-link { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-light); display: flex; align-items: center; gap: 6px; }
-    .back-link::before { content: '\2190'; } .back-link:hover { color: var(--accent); }
-    .article-wrap { max-width: var(--max); margin: 0 auto; padding: 48px 24px 80px; }
-    .article-category { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; background: var(--accent); color: #fff; padding: 3px 8px; display: inline-block; margin-bottom: 18px; }
-    .article-title { font-family: 'Playfair Display', serif; font-size: clamp(28px, 5vw, 46px); font-weight: 900; line-height: 1.15; margin-bottom: 18px; }
-    .article-meta { font-family: 'Inter', sans-serif; font-size: 12px; color: var(--ink-light); display: flex; gap: 10px; flex-wrap: wrap; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 12px 0; margin-bottom: 36px; }
-    .article-meta .dot { color: var(--rule); } .article-meta .rt { color: var(--accent); font-weight: 600; }
-    .article-hero { width: 100%; height: 320px; background: linear-gradient(135deg, #1a1a2e 0%, #e8c97a 100%); display: flex; align-items: center; justify-content: center; font-size: 96px; margin-bottom: 40px; border: 1px solid var(--rule-light); }
-    .article-body h2 { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700; margin: 40px 0 14px; }
-    .article-body p { margin-bottom: 22px; }
-    .article-body p:first-child::first-letter { font-family: 'Playfair Display', serif; font-size: 72px; font-weight: 900; float: left; line-height: 0.8; margin: 8px 12px 0 0; color: var(--accent); }
-    .article-body blockquote { border-left: 4px solid var(--accent); margin: 32px 0; padding: 16px 24px; background: var(--paper-alt); font-style: italic; font-size: 19px; color: var(--ink-light); }
-    .article-body ul { margin: 0 0 22px 24px; } .article-body li { margin-bottom: 8px; }
-    .article-body strong { font-weight: 700; }
-    .article-divider { border: none; border-top: 2px solid var(--rule); margin: 48px 0; }
-    .article-footer { border-top: 2px solid var(--rule); padding-top: 32px; display: flex; align-items: center; gap: 20px; }
-    .author-avatar { width: 64px; height: 64px; border-radius: 50%; background: linear-gradient(135deg, var(--accent) 0%, #1a1a2e 100%); display: flex; align-items: center; justify-content: center; font-size: 28px; flex-shrink: 0; border: 2px solid var(--ink); }
-    .author-info h4 { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; margin-bottom: 4px; }
-    .author-info p { font-size: 13px; color: var(--ink-light); }
-    .back-nav { text-align: center; margin-top: 48px; }
-    .back-nav a { font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; border: 2px solid var(--ink); padding: 10px 28px; display: inline-block; transition: all 0.2s; }
-    .back-nav a:hover { background: var(--ink); color: #fff; }
-  </style>
-</head>
-<body>
-<header class="site-header">
-  <a href="index.html" class="logo">Ishaaq<em>AI</em></a>
-  <a href="index.html" class="back-link">Back to Home</a>
-</header>
-<article class="article-wrap">
-  <span class="article-category">Personal Growth</span>
-  <h1 class="article-title">The Compounding Returns of Writing in Public Every Week</h1>
-  <div class="article-meta">
-    <span>Ishaaq Aba Bagnan</span><span class="dot">&bull;</span>
-    <span>January 15, 2026</span><span class="dot">&bull;</span>
-    <span class="rt">4 min read</span>
-  </div>
-  <div class="article-hero">&#11088;</div>
-  <div class="article-body">
-    <p>The case for writing publicly is usually made in terms of audience growth and personal branding. Those benefits are real but they are also the slowest to arrive and the least interesting once they do. The more compelling case is the one almost nobody makes: writing in public every week is one of the highest-leverage thinking tools available to anyone doing knowledge work, and the returns on it compound in ways that are genuinely difficult to anticipate from the starting line.</p>
-
-    <h2>Writing Forces Thinking to Completion</h2>
-    <p>Most of us walk around with ideas in a permanently half-formed state. We have a sense of what we think about something. We could talk about it in broad strokes at a dinner table. But the moment you sit down to write it for an audience that will actually read it, you discover that the half-formed idea has gaps you did not know were there.</p>
-    <p>Writing publicly sets a higher standard than writing privately because you know someone will read it and hold it to account. That accountability forces the thinking to completion. The gaps get filled. The contradictions get resolved. The vague intuition becomes an actual position. This is not a side effect of writing -- it is the primary value.</p>
-
-    <blockquote>"I write to find out what I think. The audience is the accountability mechanism that ensures I actually finish the thought."</blockquote>
-
-    <h2>The Surface Area Effect</h2>
-    <p>Every piece of public writing is a permanent, searchable, shareable artefact that can connect you to the right person at any time in the future -- including times when you are asleep, in a meeting, or not thinking about it at all. A single post from eight months ago has introduced me to collaborators, led to speaking invitations, and started conversations that became meaningful professional relationships.</p>
-    <p>You cannot predict which piece will land with whom or when. What you can control is the size of the surface area. More writing, published consistently over time, creates more surface area. More surface area creates more chance encounters with the right people. This is the mechanism behind the cliche that consistent creators seem to get lucky more often than everyone else. It is not luck -- it is surface area.</p>
-
-    <h2>The Compounding Clarity Effect</h2>
-    <p>The second-order benefit is less visible but more durable. When you write publicly about a topic every week for a year, you do not just produce fifty-two pieces of content. You develop a living, tested, refined body of thinking on that topic. Ideas that seemed correct in week four get challenged and revised by week eighteen. Frameworks that were fuzzy become precise. Positions that were tentative become convictions -- or get abandoned in favour of better ones.</p>
-    <ul>
-      <li>Your thinking on the topic becomes faster and more reliable because it has been stress-tested publicly.</li>
-      <li>You develop an archive you can reference, link to, and build on rather than reinventing the same ideas repeatedly.</li>
-      <li>The depth of your understanding becomes visible to anyone who reads across your body of work -- which is a form of credibility that no bio or credential can replicate.</li>
-    </ul>
-
-    <h2>The Practical Constraint</h2>
-    <p>None of this requires long-form essays every week. The constraint is regularity and genuine thought, not word count. A five-hundred-word post written with honest thinking beats a three-thousand-word piece that says nothing new. The question to ask before hitting publish is not "is this long enough?" but "does this contain at least one thing I actually believe that is worth believing?"</p>
-    <p>If yes, publish it. The compounding starts the moment you do.</p>
-    <hr class="article-divider" />
-    <p style="font-size:15px;color:var(--ink-light);">Writing publicly every week about AI, operations, and building. Subscribe to follow along every Monday.</p>
-  </div>
-  <div class="article-footer">
-    <div class="author-avatar">&#129489;</div>
-    <div class="author-info">
-      <h4>Ishaaq Aba Bagnan</h4>
-      <p>Operations leader and AI practitioner writing from the UAE. Follow on <a href="https://twitter.com/ishaaqai" style="color:var(--accent);">X @IshaaqAI</a>.</p>
-    </div>
-  </div>
-  <div class="back-nav"><a href="index.html">Back to All Posts</a></div>
-</article>
-</body>
-</html>
+PCFET0NUWVBFIGh0bWw+CjxodG1sIGxhbmc9ImVuIj4KPGhlYWQ+CiAgPG1l
+dGEgY2hhcnNldD0iVVRGLTgiIC8+CiAgPG1ldGEgbmFtZT0idmlld3BvcnQi
+IGNvbnRlbnQ9IndpZHRoPWRldmljZS13aWR0aCwgaW5pdGlhbC1zY2FsZT0x
+LjAiIC8+CiAgPHRpdGxlPlRoZSBDb21wb3VuZGluZyBSZXR1cm5zIG9mIFdy
+aXRpbmcgaW4gUHVibGljIEV2ZXJ5IFdlZWsgLS0gSXNoYWFxQUk8L3RpdGxl
+PgogIDxsaW5rIHJlbD0icHJlY29ubmVjdCIgaHJlZj0iaHR0cHM6Ly9mb250
+cy5nb29nbGVhcGlzLmNvbSIgLz4KICA8bGluayBocmVmPSJodHRwczovL2Zv
+bnRzLmdvb2dsZWFwaXMuY29tL2NzczI/ZmFtaWx5PVBsYXlmYWlyK0Rpc3Bs
+YXk6aXRhbCx3Z2h0QDAsNDAwOzAsNzAwOzAsOTAwOzEsNDAwOzEsNzAwJmZh
+bWlseT1Tb3VyY2UrU2VyaWYrNDppdGFsLG9wc3osd2dodEAwLDguLjYwLDMw
+MDswLDguLjYwLDQwMDswLDguLjYwLDYwMDsxLDguLjYwLDMwMDsxLDguLjYw
+LDQwMCZmYW1pbHk9SW50ZXI6d2dodEA0MDA7NTAwOzYwMDs3MDAmZGlzcGxh
+eT1zd2FwIiByZWw9InN0eWxlc2hlZXQiIC8+CiAgPHN0eWxlPgogICAgKiwg
+Kjo6YmVmb3JlLCAqOjphZnRlciB7IGJveC1zaXppbmc6IGJvcmRlci1ib3g7
+IG1hcmdpbjogMDsgcGFkZGluZzogMDsgfQogICAgOnJvb3QgeyAtLWluazog
+IzFhMWExYTsgLS1pbmstbGlnaHQ6ICM0NDQ7IC0tcnVsZTogI2M4YzBiMDsg
+LS1ydWxlLWxpZ2h0OiAjZThlMmQ4OyAtLXBhcGVyOiAjZmFmOGY0OyAtLXBh
+cGVyLWFsdDogI2YyZWRlNDsgLS1hY2NlbnQ6ICNiNTI0MWM7IC0tbWF4OiA3
+MjBweDsgfQogICAgYm9keSB7IGJhY2tncm91bmQ6IHZhcigtLXBhcGVyKTsg
+Y29sb3I6IHZhcigtLWluayk7IGZvbnQtZmFtaWx5OiAnU291cmNlIFNlcmlm
+IDQnLCBHZW9yZ2lhLCBzZXJpZjsgZm9udC1zaXplOiAxOHB4OyBsaW5lLWhl
+aWdodDogMS44OyAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNl
+ZDsgfQogICAgYSB7IGNvbG9yOiBpbmhlcml0OyB0ZXh0LWRlY29yYXRpb246
+IG5vbmU7IH0gYTpob3ZlciB7IGNvbG9yOiB2YXIoLS1hY2NlbnQpOyB9CiAg
+ICAuc2l0ZS1oZWFkZXIgeyBib3JkZXItYm90dG9tOiA0cHggZG91YmxlIHZh
+cigtLXJ1bGUpOyBwYWRkaW5nOiAxOHB4IDI0cHg7IGRpc3BsYXk6IGZsZXg7
+IGFsaWduLWl0ZW1zOiBjZW50ZXI7IGp1c3RpZnktY29udGVudDogc3BhY2Ut
+YmV0d2VlbjsgbWF4LXdpZHRoOiAxMTIwcHg7IG1hcmdpbjogMCBhdXRvOyB9
+CiAgICAubG9nbyB7IGZvbnQtZmFtaWx5OiAnUGxheWZhaXIgRGlzcGxheScs
+IHNlcmlmOyBmb250LXNpemU6IDI4cHg7IGZvbnQtd2VpZ2h0OiA5MDA7IH0g
+LmxvZ28gZW0geyBmb250LXN0eWxlOiBpdGFsaWM7IGNvbG9yOiB2YXIoLS1h
+Y2NlbnQpOyB9CiAgICAuYmFjay1saW5rIHsgZm9udC1mYW1pbHk6ICdJbnRl
+cicsIHNhbnMtc2VyaWY7IGZvbnQtc2l6ZTogMTFweDsgZm9udC13ZWlnaHQ6
+IDcwMDsgbGV0dGVyLXNwYWNpbmc6IDAuMTJlbTsgdGV4dC10cmFuc2Zvcm06
+IHVwcGVyY2FzZTsgY29sb3I6IHZhcigtLWluay1saWdodCk7IGRpc3BsYXk6
+IGZsZXg7IGFsaWduLWl0ZW1zOiBjZW50ZXI7IGdhcDogNnB4OyB9CiAgICAu
+YmFjay1saW5rOjpiZWZvcmUgeyBjb250ZW50OiAnXDIxOTAnOyB9IC5iYWNr
+LWxpbms6aG92ZXIgeyBjb2xvcjogdmFyKC0tYWNjZW50KTsgfQogICAgLmFy
+dGljbGUtd3JhcCB7IG1heC13aWR0aDogdmFyKC0tbWF4KTsgbWFyZ2luOiAw
+IGF1dG87IHBhZGRpbmc6IDQ4cHggMjRweCA4MHB4OyB9CiAgICAuYXJ0aWNs
+ZS1jYXRlZ29yeSB7IGZvbnQtZmFtaWx5OiAnSW50ZXInLCBzYW5zLXNlcmlm
+OyBmb250LXNpemU6IDEwcHg7IGZvbnQtd2VpZ2h0OiA3MDA7IGxldHRlci1z
+cGFjaW5nOiAwLjJlbTsgdGV4dC10cmFuc2Zvcm06IHVwcGVyY2FzZTsgYmFj
+a2dyb3VuZDogdmFyKC0tYWNjZW50KTsgY29sb3I6ICNmZmY7IHBhZGRpbmc6
+IDNweCA4cHg7IGRpc3BsYXk6IGlubGluZS1ibG9jazsgbWFyZ2luLWJvdHRv
+bTogMThweDsgfQogICAgLmFydGljbGUtdGl0bGUgeyBmb250LWZhbWlseTog
+J1BsYXlmYWlyIERpc3BsYXknLCBzZXJpZjsgZm9udC1zaXplOiBjbGFtcCgy
+OHB4LCA1dncsIDQ2cHgpOyBmb250LXdlaWdodDogOTAwOyBsaW5lLWhlaWdo
+dDogMS4xNTsgbWFyZ2luLWJvdHRvbTogMThweDsgfQogICAgLmFydGljbGUt
+bWV0YSB7IGZvbnQtZmFtaWx5OiAnSW50ZXInLCBzYW5zLXNlcmlmOyBmb250
+LXNpemU6IDEycHg7IGNvbG9yOiB2YXIoLS1pbmstbGlnaHQpOyBkaXNwbGF5
+OiBmbGV4OyBnYXA6IDEwcHg7IGZsZXgtd3JhcDogd3JhcDsgYm9yZGVyLXRv
+cDogMXB4IHNvbGlkIHZhcigtLXJ1bGUpOyBib3JkZXItYm90dG9tOiAxcHgg
+c29saWQgdmFyKC0tcnVsZSk7IHBhZGRpbmc6IDEycHggMDsgbWFyZ2luLWJv
+dHRvbTogMzZweDsgfQogICAgLmFydGljbGUtbWV0YSAuZG90IHsgY29sb3I6
+IHZhcigtLXJ1bGUpOyB9IC5hcnRpY2xlLW1ldGEgLnJ0IHsgY29sb3I6IHZh
+cigtLWFjY2VudCk7IGZvbnQtd2VpZ2h0OiA2MDA7IH0KICAgIC5hcnRpY2xl
+LWhlcm8geyB3aWR0aDogMTAwJTsgaGVpZ2h0OiAzMjBweDsgYmFja2dyb3Vu
+ZDogbGluZWFyLWdyYWRpZW50KDEzNWRlZywgIzFhMWEyZSAwJSwgI2U4Yzk3
+YSAxMDAlKTsgZGlzcGxheTogZmxleDsgYWxpZ24taXRlbXM6IGNlbnRlcjsg
+anVzdGlmeS1jb250ZW50OiBjZW50ZXI7IGZvbnQtc2l6ZTogOTZweDsgbWFy
+Z2luLWJvdHRvbTogNDBweDsgYm9yZGVyOiAxcHggc29saWQgdmFyKC0tcnVs
+ZS1saWdodCk7IH0KICAgIC5hcnRpY2xlLWJvZHkgaDIgeyBmb250LWZhbWls
+eTogJ1BsYXlmYWlyIERpc3BsYXknLCBzZXJpZjsgZm9udC1zaXplOiAyNnB4
+OyBmb250LXdlaWdodDogNzAwOyBtYXJnaW46IDQwcHggMCAxNHB4OyB9CiAg
+ICAuYXJ0aWNsZS1ib2R5IHAgeyBtYXJnaW4... [truncated, 12965 total chars]
