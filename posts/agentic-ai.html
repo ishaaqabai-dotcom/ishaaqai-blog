@@ -3,513 +3,101 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IshaaqAI -- The Blog</title>
-  <meta name="description" content="Writing on AI, Operations, Build in Public, and Personal Growth by Ishaaq Aba Bagnan." />
+  <title>The Age of Agentic AI: Why Your Next Hire Might Be a Software Agent &mdash; IshaaqAI</title>
+  <meta name="description" content="We are entering a new era where AI does not just answer questions -- it plans, executes, and iterates." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --ink: #1a1a1a; --ink-light: #444; --rule: #c8c0b0; --rule-light: #e8e2d8;
-      --paper: #faf8f4; --paper-alt: #f2ede4; --accent: #b5241c; --accent-dk: #8c1a14;
-      --tag-bg: #ece8e0; --max: 1120px;
-    }
+    :root { --ink:#1a1a1a; --ink-light:#444; --rule:#c8c0b0; --rule-light:#e8e2d8; --paper:#faf8f4; --paper-alt:#f2ede4; --accent:#b5241c; --accent-dk:#8c1a14; --tag-bg:#ece8e0; --max:1120px; }
     html { scroll-behavior: smooth; }
     body { background: var(--paper); color: var(--ink); font-family: 'Source Serif 4', Georgia, serif; font-size: 17px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
     a { color: inherit; text-decoration: none; }
     a:hover { color: var(--accent); }
-
-    /* TICKER */
     .ticker-bar { background: var(--ink); color: #fff; font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 7px 0; overflow: hidden; white-space: nowrap; }
     .ticker-inner { display: inline-block; animation: ticker 32s linear infinite; }
     .ticker-inner span { margin: 0 36px; }
     @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-
-    /* MASTHEAD */
     .masthead { border-bottom: 4px double var(--rule); padding: 28px 24px 20px; text-align: center; max-width: var(--max); margin: 0 auto; }
     .masthead-meta { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-light); margin-bottom: 10px; }
     .masthead h1 { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(52px, 8vw, 92px); font-weight: 900; letter-spacing: -0.02em; line-height: 1; color: var(--ink); }
     .masthead h1 em { font-style: italic; color: var(--accent); }
     .masthead-sub { font-family: 'Inter', sans-serif; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-light); margin-top: 10px; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 6px 0; }
-
-    /* NAV */
     nav { border-bottom: 1px solid var(--rule); padding: 0 24px; max-width: var(--max); margin: 0 auto; }
     nav ul { display: flex; list-style: none; overflow-x: auto; }
-    nav ul li a { display: block; font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-light); padding: 14px 18px; border-right: 1px solid var(--rule-light); white-space: nowrap; transition: color 0.2s, background 0.2s; cursor: pointer; }
+    nav ul li a { display: block; font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-light); padding: 14px 18px; border-right: 1px solid var(--rule-light); white-space: nowrap; transition: color 0.2s, background 0.2s; }
     nav ul li:first-child a { border-left: 1px solid var(--rule-light); }
-    nav ul li a:hover, nav ul li a.active { color: var(--accent); background: var(--paper-alt); }
-
-    /* WRAPPER */
-    .site-wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
-
-    /* SECTION LABEL */
-    .section-label { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
-    .section-label::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
-
-    /* HERO */
-    .hero { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-bottom: 2px solid var(--rule); margin-top: 32px; padding-bottom: 32px; }
-    .hero-main { border-right: 1px solid var(--rule); padding-right: 32px; }
-    .hero-img { width: 100%; height: 300px; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); display: flex; align-items: center; justify-content: center; font-size: 72px; margin-bottom: 20px; border: 1px solid var(--rule-light); }
-    .post-tag { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; background: var(--accent); color: #fff; padding: 3px 8px; display: inline-block; margin-bottom: 12px; }
-    .hero-main h2 { font-family: 'Playfair Display', serif; font-size: clamp(24px, 3.2vw, 36px); font-weight: 700; line-height: 1.2; margin-bottom: 14px; }
-    .hero-main .excerpt { font-size: 16px; color: var(--ink-light); line-height: 1.65; margin-bottom: 16px; }
-    .hero-sidebar { padding-left: 32px; display: flex; flex-direction: column; }
-    .hero-sidebar .side-post { padding: 18px 0; border-bottom: 1px solid var(--rule-light); }
-    .hero-sidebar .side-post:first-of-type { padding-top: 0; }
-    .hero-sidebar .side-post:last-child { border-bottom: none; }
-
-    /* POST META */
-    .post-meta { font-family: 'Inter', sans-serif; font-size: 11px; color: var(--ink-light); display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    nav ul li a:hover { color: var(--accent); background: var(--paper-alt); }
+    .article-wrap { max-width: 740px; margin: 0 auto; padding: 48px 24px 80px; }
+    .post-tag { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; background: var(--accent); color: #fff; padding: 3px 8px; display: inline-block; margin-bottom: 16px; }
+    .article-title { font-family: 'Playfair Display', serif; font-size: clamp(28px, 4vw, 44px); font-weight: 900; line-height: 1.15; margin-bottom: 20px; }
+    .post-meta { font-family: 'Inter', sans-serif; font-size: 12px; color: var(--ink-light); display: flex; align-items: center; gap: 8px; flex-wrap: wrap; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 10px 0; margin-bottom: 32px; }
     .post-meta .dot { color: var(--rule); }
-    .post-meta .rt { color: var(--accent); }
-
-    /* TAG PILL */
-    .tag { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; background: var(--tag-bg); color: var(--ink-light); padding: 2px 8px; border: 1px solid var(--rule); display: inline-block; margin-bottom: 6px; }
-
-    /* READ MORE */
-    .rm { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); display: inline-flex; align-items: center; gap: 4px; }
-    .rm::after { content: '\2192'; }
-    .rm:hover { color: var(--accent-dk); }
-
-    /* CARD GRID */
-    .grid-section { padding: 36px 0; border-bottom: 2px solid var(--rule); }
-    .post-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
-    .post-card { border-top: 3px solid var(--ink); padding-top: 16px; }
-    .card-img { width: 100%; height: 156px; background: var(--paper-alt); border: 1px solid var(--rule-light); display: flex; align-items: center; justify-content: center; font-size: 48px; margin-bottom: 14px; }
-    .post-card h3 { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; line-height: 1.3; margin: 6px 0 10px; }
-    .post-card .excerpt { font-size: 14px; color: var(--ink-light); line-height: 1.6; margin-bottom: 12px; }
-
-    /* TWO COL */
-    .two-col { display: grid; grid-template-columns: 2fr 1fr; gap: 40px; padding: 36px 0; border-bottom: 2px solid var(--rule); }
-    .list-post { display: grid; grid-template-columns: 1fr 88px; gap: 16px; align-items: start; padding-bottom: 24px; border-bottom: 1px solid var(--rule-light); }
-    .list-post:last-child { border-bottom: none; padding-bottom: 0; }
-    .list-post h3 { font-family: 'Playfair Display', serif; font-size: 19px; font-weight: 700; line-height: 1.3; margin: 6px 0 8px; }
-    .thumb { width: 88px; height: 88px; background: var(--paper-alt); border: 1px solid var(--rule-light); display: flex; align-items: center; justify-content: center; font-size: 32px; flex-shrink: 0; }
-    .featured-list { display: flex; flex-direction: column; gap: 24px; }
-
-    /* SIDEBAR */
-    .sidebar { border-left: 1px solid var(--rule); padding-left: 32px; }
-    .sidebar-widget { margin-bottom: 32px; }
-    .sidebar-widget h4 { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; border-bottom: 2px solid var(--ink); padding-bottom: 8px; margin-bottom: 14px; }
-    .topics { display: flex; flex-wrap: wrap; gap: 8px; }
-    .topics a { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; border: 1px solid var(--rule); padding: 5px 12px; background: var(--paper-alt); transition: all 0.2s; cursor: pointer; }
-    .topics a:hover { background: var(--ink); color: #fff; border-color: var(--ink); }
-    .nl-box { background: var(--ink); color: #fff; padding: 20px; }
-    .nl-box h4 { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: #fff; border-bottom: 1px solid #333; padding-bottom: 8px; margin-bottom: 10px; }
-    .nl-box p { font-size: 13px; color: #bbb; margin-bottom: 14px; }
-    .nl-box input { width: 100%; padding: 9px 12px; border: 1px solid #555; background: #2a2a2a; color: #fff; font-family: 'Inter', sans-serif; font-size: 13px; margin-bottom: 8px; outline: none; }
-    .nl-box input::placeholder { color: #777; }
-    .nl-box button { width: 100%; padding: 10px; background: var(--accent); color: #fff; border: none; font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; transition: background 0.2s; }
-    .nl-box button:hover { background: var(--accent-dk); }
-
-    /* ABOUT */
-    .about-strip { display: grid; grid-template-columns: auto 1fr; gap: 24px; align-items: center; padding: 32px 0; border-bottom: 2px solid var(--rule); }
-    .avatar { width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, var(--accent) 0%, #1a1a2e 100%); display: flex; align-items: center; justify-content: center; font-size: 36px; flex-shrink: 0; border: 3px solid var(--ink); }
-    .about-text h3 { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; margin-bottom: 4px; }
-    .about-text p { font-size: 14px; color: var(--ink-light); max-width: 600px; }
-    .about-links { display: flex; gap: 12px; margin-top: 10px; }
-    .about-links a { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid var(--rule); padding: 5px 14px; transition: all 0.2s; }
-    .about-links a:hover { background: var(--ink); color: #fff; border-color: var(--ink); }
-
-    /* FOOTER */
-    footer { text-align: center; padding: 32px 24px; border-top: 3px double var(--rule); font-family: 'Inter', sans-serif; font-size: 12px; color: var(--ink-light); letter-spacing: 0.06em; }
-    .footer-brand { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 900; color: var(--ink); margin-bottom: 6px; }
-
-    /* FILTER STATES */
-    [data-category].hidden { display: none !important; }
-    .filter-banner { background: var(--paper-alt); border: 1px solid var(--rule); padding: 10px 16px; margin: 16px 0 0; font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-light); display: none; align-items: center; justify-content: space-between; }
-    .filter-banner.visible { display: flex; }
-    .filter-banner button { background: none; border: 1px solid var(--rule); padding: 3px 10px; font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; color: var(--accent); transition: all 0.2s; }
-    .filter-banner button:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
-
-    /* RESPONSIVE */
-    @media (max-width: 768px) {
-      .hero { grid-template-columns: 1fr; }
-      .hero-main { border-right: none; padding-right: 0; border-bottom: 1px solid var(--rule); padding-bottom: 24px; margin-bottom: 24px; }
-      .hero-sidebar { padding-left: 0; }
-      .post-grid { grid-template-columns: 1fr; }
-      .two-col { grid-template-columns: 1fr; }
-      .sidebar { border-left: none; padding-left: 0; border-top: 2px solid var(--rule); padding-top: 24px; }
-      .list-post { grid-template-columns: 1fr; }
-      .thumb { display: none; }
-    }
+    .post-meta .rt { color: var(--accent); font-weight: 600; }
+    .hero-img { width: 100%; height: 280px; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); display: flex; align-items: center; justify-content: center; font-size: 96px; margin-bottom: 36px; border: 1px solid var(--rule-light); }
+    .article-body h2 { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 700; margin: 36px 0 14px; border-bottom: 1px solid var(--rule-light); padding-bottom: 8px; }
+    .article-body p { margin-bottom: 20px; }
+    .article-body blockquote { border-left: 3px solid var(--accent); padding: 12px 20px; margin: 28px 0; background: var(--paper-alt); font-style: italic; color: var(--ink-light); }
+    .back-link { display: inline-flex; align-items: center; gap: 6px; font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 32px; }
+    .back-link::before { content: '\2190'; }
+    .back-link:hover { color: var(--accent-dk); }
+    footer { padding: 28px 24px; text-align: center; border-top: 4px double var(--rule); max-width: var(--max); margin: 0 auto; }
+    footer p { font-family: 'Inter', sans-serif; font-size: 11px; letter-spacing: 0.08em; color: var(--ink-light); }
+    .footer-brand { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 900; color: var(--ink); margin-bottom: 6px; }
   </style>
 </head>
 <body>
-
-<!-- TICKER -->
-<div class="ticker-bar">
-  <div class="ticker-inner">
-    <span>AI &amp; Technology</span><span>&nbsp;&bull;&nbsp;</span>
-    <span>Operations &amp; Strategy</span><span>&nbsp;&bull;&nbsp;</span>
-    <span>Build in Public</span><span>&nbsp;&bull;&nbsp;</span>
-    <span>Personal Growth</span><span>&nbsp;&bull;&nbsp;</span>
-    <span>AI &amp; Technology</span><span>&nbsp;&bull;&nbsp;</span>
-    <span>Operations &amp; Strategy</span><span>&nbsp;&bull;&nbsp;</span>
-    <span>Build in Public</span><span>&nbsp;&bull;&nbsp;</span>
-    <span>Personal Growth</span><span>&nbsp;&bull;&nbsp;</span>
-  </div>
-</div>
-
-<!-- MASTHEAD -->
+<div class="ticker-bar"><span class="ticker-inner"><span>AI &amp; Technology</span><span>&nbsp;&bull;&nbsp;</span><span>Operations &amp; Strategy</span><span>&nbsp;&bull;&nbsp;</span><span>Build in Public</span><span>&nbsp;&bull;&nbsp;</span><span>Personal Growth</span><span>&nbsp;&bull;&nbsp;</span><span>AI &amp; Technology</span><span>&nbsp;&bull;&nbsp;</span><span>Operations &amp; Strategy</span><span>&nbsp;&bull;&nbsp;</span><span>Build in Public</span><span>&nbsp;&bull;&nbsp;</span><span>Personal Growth</span><span>&nbsp;&bull;&nbsp;</span></span></div>
 <header class="masthead">
   <p class="masthead-meta">Est. 2025 &mdash; Written in the UAE &mdash; Updated Weekly</p>
   <h1>Ishaaq<em>AI</em></h1>
   <p class="masthead-sub">AI &bull; Operations &bull; Build in Public &bull; Personal Growth</p>
 </header>
-
-<!-- NAV -->
 <nav>
   <ul>
-    <li><a class="active" onclick="filterPosts('all', this)">Home</a></li>
-    <li><a onclick="filterPosts('ai', this)">AI &amp; Tech</a></li>
-    <li><a onclick="filterPosts('operations', this)">Operations</a></li>
-    <li><a onclick="filterPosts('build', this)">Build in Public</a></li>
-    <li><a onclick="filterPosts('growth', this)">Personal Growth</a></li>
-    <li><a onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">About</a></li>
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="#">AI &amp; Tech</a></li>
+    <li><a href="#">Operations</a></li>
+    <li><a href="#">Build in Public</a></li>
+    <li><a href="#">Personal Growth</a></li>
+    <li><a href="#">About</a></li>
   </ul>
 </nav>
-
-<main class="site-wrap">
-
-  <!-- FILTER BANNER -->
-  <div class="filter-banner" id="filter-banner">
-    <span id="filter-label">Showing: All Posts</span>
-    <button onclick="filterPosts('all', null)">Clear Filter &times;</button>
+<main class="article-wrap">
+  <a href="../index.html" class="back-link">Back to Home</a>
+  <span class="post-tag">AI &amp; Technology</span>
+  <h1 class="article-title">The Age of Agentic AI: Why Your Next Hire Might Be a Software Agent</h1>
+  <div class="post-meta">
+    <span>Ishaaq Aba Bagnan</span><span class="dot">&bull;</span>
+    <span>March 10, 2026</span><span class="dot">&bull;</span>
+    <span class="rt">8 min read</span>
   </div>
-
-  <!-- HERO -->
-  <section class="hero">
-    <article class="hero-main" data-category="ai">
-      <div class="hero-img">&#129504;</div>
-      <span class="post-tag">AI &amp; Technology</span>
-      <h2><a href="posts/agentic-ai.html">The Age of Agentic AI: Why Your Next Hire Might Be a Software Agent</a></h2>
-      <p class="excerpt">We are entering a new era where AI does not just answer questions -- it plans, executes, and iterates. From automated pipelines to multi-agent orchestration, here is what operations leaders need to understand about the shift happening right now.</p>
-      <div class="post-meta">
-        <span>Ishaaq Aba Bagnan</span><span class="dot">&bull;</span>
-        <span>March 10, 2026</span><span class="dot">&bull;</span>
-        <span class="rt">8 min read</span>
-      </div>
-      <br/><a href="posts/agentic-ai.html" class="rm">Read the full piece</a>
-    </article>
-
-    <aside class="hero-sidebar">
-      <p class="section-label">Also in this issue</p>
-      <article class="side-post" data-category="build">
-        <span class="tag">Build in Public</span>
-        <h3 style="font-family:'Playfair Display',serif;font-size:17px;font-weight:700;line-height:1.3;margin:4px 0 6px;"><a href="posts/5-agent-automation.html">How I Built a 5-Agent Automation in 48 Hours</a></h3>
-        <div class="post-meta"><span>Feb 28, 2026</span><span class="dot">&bull;</span><span class="rt">5 min</span></div>
-      </article>
-      <article class="side-post" data-category="operations">
-        <span class="tag">Operations</span>
-        <h3 style="font-family:'Playfair Display',serif;font-size:17px;font-weight:700;line-height:1.3;margin:4px 0 6px;"><a href="posts/human-approval-gates.html">The Bottleneck Nobody Talks About: Human Approval Gates</a></h3>
-        <div class="post-meta"><span>Feb 20, 2026</span><span class="dot">&bull;</span><span class="rt">6 min</span></div>
-      </article>
-      <article class="side-post" data-category="growth">
-        <span class="tag">Personal Growth</span>
-        <h3 style="font-family:'Playfair Display',serif;font-size:17px;font-weight:700;line-height:1.3;margin:4px 0 6px;"><a href="posts/1000-days.html">What 1,000 Days of Consistent Output Actually Teaches You</a></h3>
-        <div class="post-meta"><span>Feb 12, 2026</span><span class="dot">&bull;</span><span class="rt">4 min</span></div>
-      </article>
-      <article class="side-post" data-category="ai">
-        <span class="tag">AI &amp; Tech</span>
-        <h3 style="font-family:'Playfair Display',serif;font-size:17px;font-weight:700;line-height:1.3;margin:4px 0 6px;"><a href="posts/gpt5-gemini-race.html">GPT-5, Gemini Ultra, and the Race Nobody Can Win Alone</a></h3>
-        <div class="post-meta"><span>Feb 5, 2026</span><span class="dot">&bull;</span><span class="rt">7 min</span></div>
-      </article>
-    </aside>
-  </section>
-
-  <!-- RECENT POSTS GRID -->
-  <section class="grid-section">
-    <p class="section-label">Recent Posts</p>
-    <div class="post-grid">
-      <article class="post-card" data-category="operations">
-        <div class="card-img">&#9881;&#65039;</div>
-        <span class="tag">Operations</span>
-        <h3><a href="posts/sops-are-dead.html">SOPs Are Dead. Long Live Intelligent Workflows.</a></h3>
-        <p class="excerpt">Static procedures cannot keep up with dynamic businesses. Here is how AI-native operations teams are replacing rigid SOPs with adaptive, self-improving systems.</p>
-        <div class="post-meta"><span>Jan 30, 2026</span><span class="dot">&bull;</span><span class="rt">5 min</span></div>
-        <br/><a href="posts/sops-are-dead.html" class="rm">Read more</a>
-      </article>
-      <article class="post-card" data-category="build">
-        <div class="card-img">&#127759;</div>
-        <span class="tag">Build in Public</span>
-        <h3><a href="posts/building-ishaaqai.html">Building @IshaaqAI: What I Wish I Knew at 1,000 Followers</a></h3>
-        <p class="excerpt">The real lessons from growing a niche X account in the AI space -- what content worked, what flopped, and why consistency beats virality every time.</p>
-        <div class="post-meta"><span>Jan 22, 2026</span><span class="dot">&bull;</span><span class="rt">6 min</span></div>
-        <br/><a href="posts/building-ishaaqai.html" class="rm">Read more</a>
-      </article>
-      <article class="post-card" data-category="growth">
-        <div class="card-img">&#127775;</div>
-        <span class="tag">Personal Growth</span>
-        <h3><a href="posts/writing-in-public.html">The Compounding Returns of Writing in Public Every Week</a></h3>
-        <p class="excerpt">Writing regularly is not about going viral. It is about building a body of thinking that compounds -- attracting the right people and opening unexpected doors.</p>
-        <div class="post-meta"><span>Jan 15, 2026</span><span class="dot">&bull;</span><span class="rt">4 min</span></div>
-        <br/><a href="posts/writing-in-public.html" class="rm">Read more</a>
-      </article>
-    </div>
-  </section>
-
-  <!-- ARCHIVE + SIDEBAR -->
-  <div class="two-col">
-    <section>
-      <p class="section-label">From the Archive</p>
-      <div class="featured-list">
-        <article class="list-post" data-category="ai">
-          <div>
-            <span class="tag">AI &amp; Tech</span>
-            <h3><a href="posts/prompt-engineering.html">Prompt Engineering Is a Skill. Here Is How to Actually Get Good at It.</a></h3>
-            <p style="font-size:14px;color:var(--ink-light);margin-bottom:8px;">Most people think prompt engineering is about writing clever sentences. It is actually about understanding model behavior, context windows, and how LLMs generate tokens.</p>
-            <div class="post-meta"><span>Jan 8, 2026</span><span class="dot">&bull;</span><span class="rt">9 min</span></div>
-          </div>
-          <div class="thumb">&#129302;</div>
-        </article>
-        <article class="list-post" data-category="operations">
-          <div>
-            <span class="tag">Operations</span>
-            <h3><a href="posts/token-costs.html">Why Every Ops Leader Needs to Understand Token Costs in 2026</a></h3>
-            <p style="font-size:14px;color:var(--ink-light);margin-bottom:8px;">AI is not free. As teams embed LLMs into every workflow, infrastructure costs are becoming an operational concern -- not just an engineering one.</p>
-            <div class="post-meta"><span>Dec 18, 2025</span><span class="dot">&bull;</span><span class="rt">6 min</span></div>
-          </div>
-          <div class="thumb">&#128202;</div>
-        </article>
-        <article class="list-post" data-category="build">
-          <div>
-            <span class="tag">Build in Public</span>
-            <h3><a href="#">The 30-Day Content Experiment That Changed My Posting Strategy</a></h3>
-            <p style="font-size:14px;color:var(--ink-light);margin-bottom:8px;">I tested four content formats for 30 days straight, tracked every metric, and came out with a cleaner and more sustainable system for growing in public.</p>
-            <div class="post-meta"><span>Dec 5, 2025</span><span class="dot">&bull;</span><span class="rt">7 min</span></div>
-          </div>
-          <div class="thumb">&#128218;</div>
-        </article>
-      </div>
-    </section>
-
-    <aside class="sidebar">
-      <div class="sidebar-widget">
-        <div class="nl-box">
-          <h4>The Weekly Brief</h4>
-          <p>One email every Monday. AI insights, ops thinking, and what I am building -- no fluff.</p>
-          <input type="email" placeholder="your@email.com" />
-          <button type="button">Subscribe Free</button>
-        </div>
-      </div>
-      <div class="sidebar-widget">
-        <h4>Browse by Topic</h4>
-        <div class="topics">
-          <a onclick="filterPosts('ai', null)">AI &amp; Tech</a>
-          <a onclick="filterPosts('operations', null)">Operations</a>
-          <a onclick="filterPosts('build', null)">Build in Public</a>
-          <a onclick="filterPosts('growth', null)">Personal Growth</a>
-        </div>
-      </div>
-      <div class="sidebar-widget">
-        <h4>Popular Posts</h4>
-        <ol style="padding-left:18px;font-size:14px;display:flex;flex-direction:column;gap:10px;">
-          <li><a href="posts/agentic-ai.html">The Age of Agentic AI</a></li>
-          <li><a href="posts/sops-are-dead.html">SOPs Are Dead</a></li>
-          <li><a href="posts/prompt-engineering.html">Prompt Engineering Is a Skill</a></li>
-          <li><a href="posts/building-ishaaqai.html">Building @IshaaqAI</a></li>
-          <li><a href="posts/1000-days.html">What 1,000 Days Teaches You</a></li>
-        </ol>
-      </div>
-    </aside>
+  <div class="hero-img">&#129504;</div>
+  <div class="article-body">
+    <p>Something fundamental shifted in how I think about building teams. It happened quietly, over the course of a few months of working with AI agents daily. I stopped asking "what should I automate?" and started asking "what still requires a human?" That inversion is the essence of the agentic AI era.</p>
+    <p>We are not talking about chatbots that answer questions. We are talking about software systems that receive a goal, break it down into steps, execute those steps using tools and APIs, evaluate the results, and loop until the job is done. That is not automation in the traditional sense. That is agency.</p>
+    <h2>What Makes an Agent Different from a Bot</h2>
+    <p>Traditional automation is brittle. You define a trigger, a set of steps, and an output. If anything falls outside those parameters, the bot fails silently or throws an error. That is fine for predictable, repetitive tasks. But most valuable work is not predictable.</p>
+    <p>An AI agent operates differently. It reasons about a goal. It selects tools. It handles edge cases by thinking through them rather than failing on them. It can send an email, read the reply, decide what to do next, update a record, and notify a team member -- all without a human touching it. The difference is judgment. Agents have a crude but functional version of it.</p>
+    <blockquote>"The question is no longer whether AI can do the task. It is whether you have given the agent the right goal, the right tools, and the right guardrails."</blockquote>
+    <h2>The Multi-Agent Shift</h2>
+    <p>Single agents are powerful. Multi-agent systems are transformative. The moment you can have one agent orchestrate others -- a planner delegating to a researcher, a writer, a formatter, and a publisher -- you have something that resembles a small, tireless team.</p>
+    <p>I have built pipelines where a single instruction from me results in six agents collaborating: one searches the web, one drafts content, one reviews it against a style guide, one formats it for a platform, one schedules it, and one logs the output. The whole thing runs in under three minutes. A human team doing the same would take hours.</p>
+    <p>This is not hypothetical. This is what I do on a weekly basis. The infrastructure exists today. The question is whether operations leaders are paying attention.</p>
+    <h2>What This Means for Operations Leaders</h2>
+    <p>If you lead an operations team in 2026 and you are not experimenting with agentic AI, you are already behind. Not because the technology is mature -- it is not, and it breaks in interesting ways -- but because your competitors who are experimenting now will have a six-month head start on what works and what does not.</p>
+    <p>The practical starting points are narrow and high-value: document processing, data enrichment, research summarisation, internal reporting, and customer triage. These are tasks where agents can take the first pass reliably and humans review only the exceptions. That ratio -- agents handling 80%, humans reviewing 20% -- is where the real productivity gains live.</p>
+    <h2>The Hiring Analogy Is Real</h2>
+    <p>I keep coming back to the framing in the title of this piece because it is the most honest way to describe what is happening. When you deploy an agent for a specific function -- say, competitive intelligence gathering or first-line support triage -- you are effectively adding a team member. One that works continuously, costs a fraction of a salary, and requires onboarding just like a new hire: clear goals, defined tools, documented escalation paths.</p>
+    <p>The flip side is that agents also require management. They go off-track. They hallucinate. They optimise for the wrong thing if you give them the wrong objective. The operations discipline of defining success criteria, monitoring outputs, and course-correcting applies just as much to AI agents as it does to human employees.</p>
+    <p>We are early. The tools are improving fast. The leaders who treat this moment as a genuine organisational design challenge -- not just a tech experiment -- will be the ones who look back in three years and understand why they pulled ahead. Start now. Start small. But start.</p>
   </div>
-
-  <!-- ABOUT -->
-  <section class="about-strip" id="about">
-    <div class="avatar">&#129489;</div>
-    <div class="about-text">
-      <h3>Ishaaq Aba Bagnan</h3>
-      <p>Operations leader, AI practitioner, and builder writing about the intersection of intelligent systems, human performance, and building in public -- from the UAE.</p>
-      <div class="about-links">
-        <a href="https://twitter.com/ishaaqai" target="_blank" rel="noopener">X / Twitter</a>
-        <a href="mailto:ishaaqsangoku@icloud.com">Email Me</a>
-        <a href="#">All Posts</a>
-      </div>
-    </div>
-  </section>
-
 </main>
-
 <footer>
   <p class="footer-brand">IshaaqAI</p>
   <p>&copy; 2026 Ishaaq Aba Bagnan &mdash; All rights reserved &mdash; Written in the UAE</p>
   <p style="margin-top:6px;">AI &bull; Operations &bull; Build in Public &bull; Personal Growth</p>
 </footer>
-
-<script>
-  var LABELS = {
-    all: 'All Posts',
-    ai: 'AI & Tech',
-    operations: 'Operations',
-    build: 'Build in Public',
-    growth: 'Personal Growth'
-  };
-
-  function filterPosts(cat, clickedEl) {
-    var navLinks = document.querySelectorAll('nav ul li a');
-    navLinks.forEach(function(link) { link.classList.remove('active'); });
-    if (clickedEl) {
-      clickedEl.classList.add('active');
-    } else if (cat === 'all') {
-      navLinks[0].classList.add('active');
-    }
-
-    var posts = document.querySelectorAll('[data-category]');
-    posts.forEach(function(el) {
-      if (cat === 'all' || el.getAttribute('data-category') === cat) {
-        el.classList.remove('hidden');
-      } else {
-        el.classList.add('hidden');
-      }
-    });
-
-    var banner = document.getElementById('filter-banner');
-    var label = document.getElementById('filter-label');
-    if (cat === 'all') {
-      banner.classList.remove('visible');
-    } else {
-      label.textContent = 'Showing: ' + LABELS[cat];
-      banner.classList.add('visible');
-    }
-
-    if (cat !== 'all') {
-      document.querySelector('.site-wrap').scrollIntoView({behavior: 'smooth'});
-    }
-  }
-</script>
-
-<!-- PUBLISH ADMIN PANEL -->
-<div id="pub-fab" onclick="document.getElementById('pub-gate').style.display='flex'" title="Publish Article" style="position:fixed;bottom:28px;right:28px;width:52px;height:52px;background:#b5241c;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,0.22);z-index:9998;font-family:'Inter',sans-serif;font-weight:700;border:none;">&#9998;</div>
-
-<div id="pub-gate" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:9999;align-items:center;justify-content:center;">
-  <div style="background:#faf8f4;padding:36px 32px;max-width:380px;width:90%;border-top:4px solid #b5241c;position:relative;">
-    <button onclick="document.getElementById('pub-gate').style.display='none'" style="position:absolute;top:12px;right:16px;background:none;border:none;font-size:20px;cursor:pointer;color:#444;">&times;</button>
-    <p style="font-family:'Playfair Display',serif;font-size:22px;font-weight:900;margin-bottom:6px;">Publish Panel</p>
-    <p style="font-family:'Inter',sans-serif;font-size:12px;color:#888;margin-bottom:20px;letter-spacing:0.05em;">Enter password to access</p>
-    <input id="pub-pw" type="password" placeholder="Password" style="width:100%;padding:10px 12px;border:1px solid #c8c0b0;background:#f2ede4;font-family:'Inter',sans-serif;font-size:14px;margin-bottom:10px;outline:none;" onkeydown="if(event.key==='Enter')checkPubPw()" />
-    <button onclick="checkPubPw()" style="width:100%;padding:11px;background:#1a1a1a;color:#fff;border:none;font-family:'Inter',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;">Unlock</button>
-    <p id="pub-pw-err" style="color:#b5241c;font-family:'Inter',sans-serif;font-size:12px;margin-top:8px;display:none;">Incorrect password.</p>
-  </div>
-</div>
-
-<div id="pub-panel" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.8);z-index:9999;align-items:flex-start;justify-content:center;overflow-y:auto;padding:40px 16px;">
-  <div style="background:#faf8f4;max-width:780px;width:100%;border-top:4px solid #b5241c;padding:40px 36px 48px;position:relative;">
-    <button onclick="document.getElementById('pub-panel').style.display='none'" style="position:absolute;top:16px;right:20px;background:none;border:none;font-size:22px;cursor:pointer;color:#444;">&times;</button>
-    <p style="font-family:'Playfair Display',serif;font-size:28px;font-weight:900;margin-bottom:4px;">Publish New Article</p>
-    <p style="font-family:'Inter',sans-serif;font-size:12px;color:#888;letter-spacing:0.05em;margin-bottom:28px;border-bottom:1px solid #c8c0b0;padding-bottom:16px;">Fill in all fields then click Publish. This sends the article to Nebula to build and push it live.</p>
-
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px;">
-      <div>
-        <label style="font-family:'Inter',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;display:block;margin-bottom:6px;">Article Title *</label>
-        <input id="pub-title" type="text" placeholder="e.g. Why SOPs Are Dead" style="width:100%;padding:10px 12px;border:1px solid #c8c0b0;background:#fff;font-family:'Inter',sans-serif;font-size:14px;outline:none;" />
-      </div>
-      <div>
-        <label style="font-family:'Inter',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;display:block;margin-bottom:6px;">URL Slug *</label>
-        <input id="pub-slug" type="text" placeholder="e.g. why-sops-are-dead" style="width:100%;padding:10px 12px;border:1px solid #c8c0b0;background:#fff;font-family:'Inter',sans-serif;font-size:14px;outline:none;" />
-      </div>
-    </div>
-
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;margin-bottom:18px;">
-      <div>
-        <label style="font-family:'Inter',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;display:block;margin-bottom:6px;">Category *</label>
-        <select id="pub-cat" style="width:100%;padding:10px 12px;border:1px solid #c8c0b0;background:#fff;font-family:'Inter',sans-serif;font-size:14px;outline:none;">
-          <option value="ai">AI &amp; Technology</option>
-          <option value="operations">Operations</option>
-          <option value="build">Build in Public</option>
-          <option value="growth">Personal Growth</option>
-        </select>
-      </div>
-      <div>
-        <label style="font-family:'Inter',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;display:block;margin-bottom:6px;">Read Time</label>
-        <input id="pub-rt" type="text" placeholder="e.g. 6 min" style="width:100%;padding:10px 12px;border:1px solid #c8c0b0;background:#fff;font-family:'Inter',sans-serif;font-size:14px;outline:none;" />
-      </div>
-      <div>
-        <label style="font-family:'Inter',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;display:block;margin-bottom:6px;">Publish Date</label>
-        <input id="pub-date" type="date" style="width:100%;padding:10px 12px;border:1px solid #c8c0b0;background:#fff;font-family:'Inter',sans-serif;font-size:14px;outline:none;" />
-      </div>
-    </div>
-
-    <div style="margin-bottom:18px;">
-      <label style="font-family:'Inter',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;display:block;margin-bottom:6px;">Excerpt (1-2 sentences) *</label>
-      <textarea id="pub-excerpt" rows="2" placeholder="Short description shown on article cards..." style="width:100%;padding:10px 12px;border:1px solid #c8c0b0;background:#fff;font-family:'Inter',sans-serif;font-size:14px;outline:none;resize:vertical;"></textarea>
-    </div>
-
-    <div style="margin-bottom:28px;">
-      <label style="font-family:'Inter',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;display:block;margin-bottom:6px;">Article Body (HTML or plain text) *</label>
-      <textarea id="pub-body" rows="14" placeholder="Paste the full article body here. HTML tags like &lt;h2&gt;, &lt;p&gt;, &lt;blockquote&gt;, &lt;ul&gt; are supported." style="width:100%;padding:10px 12px;border:1px solid #c8c0b0;background:#fff;font-family:'Inter',sans-serif;font-size:13px;outline:none;resize:vertical;line-height:1.6;"></textarea>
-    </div>
-
-    <div style="display:flex;align-items:center;gap:16px;">
-      <button onclick="submitPublish()" style="padding:13px 36px;background:#b5241c;color:#fff;border:none;font-family:'Inter',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;">Publish Article &rarr;</button>
-      <button onclick="document.getElementById('pub-panel').style.display='none'" style="padding:13px 24px;background:none;border:2px solid #c8c0b0;color:#444;font-family:'Inter',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;">Cancel</button>
-      <span id="pub-status" style="font-family:'Inter',sans-serif;font-size:12px;color:#444;"></span>
-    </div>
-  </div>
-</div>
-
-<script>
-  var PUB_PW = 'ishaaqai2026';
-
-  function checkPubPw() {
-    var val = document.getElementById('pub-pw').value;
-    if (val === PUB_PW) {
-      document.getElementById('pub-gate').style.display = 'none';
-      document.getElementById('pub-panel').style.display = 'flex';
-      document.getElementById('pub-pw').value = '';
-      document.getElementById('pub-pw-err').style.display = 'none';
-      var d = document.getElementById('pub-date');
-      if (!d.value) { d.valueAsDate = new Date(); }
-    } else {
-      document.getElementById('pub-pw-err').style.display = 'block';
-      document.getElementById('pub-pw').value = '';
-      document.getElementById('pub-pw').focus();
-    }
-  }
-
-  function submitPublish() {
-    var title   = document.getElementById('pub-title').value.trim();
-    var slug    = document.getElementById('pub-slug').value.trim();
-    var cat     = document.getElementById('pub-cat').value;
-    var rt      = document.getElementById('pub-rt').value.trim() || '5 min';
-    var date    = document.getElementById('pub-date').value;
-    var excerpt = document.getElementById('pub-excerpt').value.trim();
-    var body    = document.getElementById('pub-body').value.trim();
-
-    if (!title || !slug || !excerpt || !body) {
-      document.getElementById('pub-status').style.color = '#b5241c';
-      document.getElementById('pub-status').textContent = 'Please fill in all required fields.';
-      return;
-    }
-
-    var catLabels = { ai: 'AI & Technology', operations: 'Operations', build: 'Build in Public', growth: 'Personal Growth' };
-    var payload = {
-      title: title, slug: slug, category: cat, category_label: catLabels[cat],
-      read_time: rt, date: date, excerpt: excerpt, body: body
-    };
-
-    document.getElementById('pub-status').style.color = '#444';
-    document.getElementById('pub-status').textContent = 'Sending to Nebula...';
-
-    fetch('https://nebula.gg/api/webhook/blog-content-pipeline-on-demand', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ action: 'publish_article', article: payload })
-    }).then(function(r) {
-      if (r.ok) {
-        document.getElementById('pub-status').style.color = '#2a7a2a';
-        document.getElementById('pub-status').textContent = 'Sent! Nebula is publishing your article now.';
-      } else {
-        document.getElementById('pub-status').style.color = '#b5241c';
-        document.getElementById('pub-status').textContent = 'Error sending. Try again or use Nebula directly.';
-      }
-    }).catch(function() {
-      document.getElementById('pub-status').style.color = '#b5241c';
-      document.getElementById('pub-status').textContent = 'Network error. Try again.';
-    });
-  }
-</script>
-
 </body>
 </html>
