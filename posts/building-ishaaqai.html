@@ -1,99 +1,66 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Building @IshaaqAI: What I Wish I Knew at 1,000 Followers &mdash; IshaaqAI</title>
-  <meta name="description" content="The real lessons from growing a niche X account in the AI space." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root { --ink:#1a1a1a; --ink-light:#444; --rule:#c8c0b0; --rule-light:#e8e2d8; --paper:#faf8f4; --paper-alt:#f2ede4; --accent:#b5241c; --accent-dk:#8c1a14; --tag-bg:#ece8e0; --max:1120px; }
-    html { scroll-behavior: smooth; }
-    body { background: var(--paper); color: var(--ink); font-family: 'Source Serif 4', Georgia, serif; font-size: 17px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
-    a { color: inherit; text-decoration: none; }
-    a:hover { color: var(--accent); }
-    .ticker-bar { background: var(--ink); color: #fff; font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 7px 0; overflow: hidden; white-space: nowrap; }
-    .ticker-inner { display: inline-block; animation: ticker 32s linear infinite; }
-    .ticker-inner span { margin: 0 36px; }
-    @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-    .masthead { border-bottom: 4px double var(--rule); padding: 28px 24px 20px; text-align: center; max-width: var(--max); margin: 0 auto; }
-    .masthead-meta { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-light); margin-bottom: 10px; }
-    .masthead h1 { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(52px, 8vw, 92px); font-weight: 900; letter-spacing: -0.02em; line-height: 1; color: var(--ink); }
-    .masthead h1 em { font-style: italic; color: var(--accent); }
-    .masthead-sub { font-family: 'Inter', sans-serif; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-light); margin-top: 10px; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 6px 0; }
-    nav { border-bottom: 1px solid var(--rule); padding: 0 24px; max-width: var(--max); margin: 0 auto; }
-    nav ul { display: flex; list-style: none; overflow-x: auto; }
-    nav ul li a { display: block; font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-light); padding: 14px 18px; border-right: 1px solid var(--rule-light); white-space: nowrap; transition: color 0.2s, background 0.2s; }
-    nav ul li:first-child a { border-left: 1px solid var(--rule-light); }
-    nav ul li a:hover { color: var(--accent); background: var(--paper-alt); }
-    .article-wrap { max-width: 740px; margin: 0 auto; padding: 48px 24px 80px; }
-    .post-tag { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; background: var(--accent); color: #fff; padding: 3px 8px; display: inline-block; margin-bottom: 16px; }
-    .article-title { font-family: 'Playfair Display', serif; font-size: clamp(28px, 4vw, 44px); font-weight: 900; line-height: 1.15; margin-bottom: 20px; }
-    .post-meta { font-family: 'Inter', sans-serif; font-size: 12px; color: var(--ink-light); display: flex; align-items: center; gap: 8px; flex-wrap: wrap; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 10px 0; margin-bottom: 32px; }
-    .post-meta .dot { color: var(--rule); }
-    .post-meta .rt { color: var(--accent); font-weight: 600; }
-    .hero-img { width: 100%; height: 280px; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); display: flex; align-items: center; justify-content: center; font-size: 96px; margin-bottom: 36px; border: 1px solid var(--rule-light); }
-    .article-body h2 { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 700; margin: 36px 0 14px; border-bottom: 1px solid var(--rule-light); padding-bottom: 8px; }
-    .article-body p { margin-bottom: 20px; }
-    .article-body blockquote { border-left: 3px solid var(--accent); padding: 12px 20px; margin: 28px 0; background: var(--paper-alt); font-style: italic; color: var(--ink-light); }
-    .back-link { display: inline-flex; align-items: center; gap: 6px; font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 32px; }
-    .back-link::before { content: '\2190'; }
-    .back-link:hover { color: var(--accent-dk); }
-    footer { padding: 28px 24px; text-align: center; border-top: 4px double var(--rule); max-width: var(--max); margin: 0 auto; }
-    footer p { font-family: 'Inter', sans-serif; font-size: 11px; letter-spacing: 0.08em; color: var(--ink-light); }
-    .footer-brand { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 900; color: var(--ink); margin-bottom: 6px; }
-  </style>
-</head>
-<body>
-<div class="ticker-bar"><span class="ticker-inner"><span>AI &amp; Technology</span><span>&nbsp;&bull;&nbsp;</span><span>Operations &amp; Strategy</span><span>&nbsp;&bull;&nbsp;</span><span>Build in Public</span><span>&nbsp;&bull;&nbsp;</span><span>Personal Growth</span><span>&nbsp;&bull;&nbsp;</span><span>AI &amp; Technology</span><span>&nbsp;&bull;&nbsp;</span><span>Operations &amp; Strategy</span><span>&nbsp;&bull;&nbsp;</span><span>Build in Public</span><span>&nbsp;&bull;&nbsp;</span><span>Personal Growth</span><span>&nbsp;&bull;&nbsp;</span></span></div>
-<header class="masthead">
-  <p class="masthead-meta">Est. 2025 &mdash; Written in the UAE &mdash; Updated Weekly</p>
-  <h1>Ishaaq<em>AI</em></h1>
-  <p class="masthead-sub">AI &bull; Operations &bull; Build in Public &bull; Personal Growth</p>
-</header>
-<nav>
-  <ul>
-    <li><a href="../index.html">Home</a></li>
-    <li><a href="#">AI &amp; Tech</a></li>
-    <li><a href="#">Operations</a></li>
-    <li><a href="#">Build in Public</a></li>
-    <li><a href="#">Personal Growth</a></li>
-    <li><a href="#">About</a></li>
-  </ul>
-</nav>
-<main class="article-wrap">
-  <a href="../index.html" class="back-link">Back to Home</a>
-  <span class="post-tag">Build in Public</span>
-  <h1 class="article-title">Building @IshaaqAI: What I Wish I Knew at 1,000 Followers</h1>
-  <div class="post-meta">
-    <span>Ishaaq Aba Bagnan</span><span class="dot">&bull;</span>
-    <span>Jan 22, 2026</span><span class="dot">&bull;</span>
-    <span class="rt">6 min read</span>
-  </div>
-  <div class="hero-img">&#127759;</div>
-  <div class="article-body">
-    <p>When I hit 1,000 followers on X, I made a list of everything I wish I had known at the start. It sat in my notes for two months before I decided to publish it. I kept hesitating because it felt too personal, too specific to my situation, too likely to come across as a growth hacking playbook disguised as reflection.</p>
-    <p>But the more conversations I had with people who were starting their own accounts -- building in public, writing about their work, trying to build an audience around a genuine area of expertise -- the more I realised the things I learned were not obvious at all. So here they are, as honestly as I can write them.</p>
-    <h2>The Content That Worked Was Not the Content I Expected</h2>
-    <p>I started @IshaaqAI expecting that the most popular content would be the most polished: long-form threads with careful structure, data-backed claims, well-edited prose. That is not what performed. The content that consistently resonated was the raw stuff. Observations I had in the middle of a conversation. Questions I was genuinely trying to answer. Mistakes I made that week and what I was doing about them.</p>
-    <p>The lesson took me longer to internalise than it should have: people do not follow accounts for polished output. They follow accounts for perspective. Your perspective is most visible not in your carefully constructed arguments but in what you notice, what you question, and what you find worth sharing unprompted.</p>
-    <blockquote>"Audience growth is a lagging indicator of consistent, genuine, specific thinking. You cannot optimise for the growth without first doing the thinking."</blockquote>
-    <h2>Consistency Beats Virality -- but Not for the Reason You Think</h2>
-    <p>The standard advice about consistency is that it is what the algorithm rewards. That is true but it is the wrong reason to be consistent. The real reason consistency matters is that it forces you to keep showing up even when individual pieces of content flop -- which they will, regularly, regardless of how good you get. An account with 400 consistent posts and no viral moments will have a more engaged, more loyal, more valuable audience than an account that went viral once and then posted sporadically for three months.</p>
-    <p>I have had posts go mildly viral. They bring a surge of followers and then a surge of unfollows as those followers discover that one post is not representative of the account. The followers who stick are the ones who found me through the quiet, regular output -- the ones who read three or four posts before following, rather than one.</p>
-    <h2>What I Got Wrong About Niche</h2>
-    <p>I initially defined my niche too broadly. "AI and operations" covers an enormous amount of ground. The posts that performed best were not about AI and operations in general -- they were about specific, concrete situations: a particular failure mode I encountered in an agent pipeline, a specific meeting format that improved decision quality on my team, a real calculation I did about the ROI of a process change.</p>
-    <p>The counterintuitive truth about niche content is that the narrower you go, the wider the resonance. A post about "AI strategy" attracts casual interest. A post about "why your approval gates are killing your AI deployment timeline" attracts intense interest from exactly the people who have that problem. Those are the followers worth having.</p>
-    <p>At 1,000 followers, the most important thing I had learned was that the account is not a product you build and launch. It is a practice you develop over time, in public, with all the mess that entails. The followers are a side effect of the practice, not the goal of it.</p>
-  </div>
-</main>
-<footer>
-  <p class="footer-brand">IshaaqAI</p>
-  <p>&copy; 2026 Ishaaq Aba Bagnan &mdash; All rights reserved &mdash; Written in the UAE</p>
-  <p style="margin-top:6px;">AI &bull; Operations &bull; Build in Public &bull; Personal Growth</p>
-</footer>
-</body>
-</html>
+PCFET0NUWVBFIGh0bWw+CjxodG1sIGxhbmc9ImVuIj4KPGhlYWQ+CiAgPG1l
+dGEgY2hhcnNldD0iVVRGLTgiIC8+CiAgPG1ldGEgbmFtZT0idmlld3BvcnQi
+IGNvbnRlbnQ9IndpZHRoPWRldmljZS13aWR0aCwgaW5pdGlhbC1zY2FsZT0x
+LjAiIC8+CiAgPHRpdGxlPkJ1aWxkaW5nIEBJc2hhYXFBSTogV2hhdCBJIFdp
+c2ggSSBLbmV3IGF0IDEsMDAwIEZvbGxvd2VycyAmbWRhc2g7IElzaGFhcUFJ
+PC90aXRsZT4KICA8bWV0YSBuYW1lPSJkZXNjcmlwdGlvbiIgY29udGVudD0i
+VGhlIHJlYWwgbGVzc29ucyBmcm9tIGdyb3dpbmcgYSBuaWNoZSBYIGFjY291
+bnQgaW4gdGhlIEFJIHNwYWNlLiIgLz4KICA8bGluayByZWw9InByZWNvbm5l
+Y3QiIGhyZWY9Imh0dHBzOi8vZm9udHMuZ29vZ2xlYXBpcy5jb20iIC8+CiAg
+PGxpbmsgcmVsPSJwcmVjb25uZWN0IiBocmVmPSJodHRwczovL2ZvbnRzLmdz
+dGF0aWMuY29tIiBjcm9zc29yaWdpbiAvPgogIDxsaW5rIGhyZWY9Imh0dHBz
+Oi8vZm9udHMuZ29vZ2xlYXBpcy5jb20vY3NzMj9mYW1pbHk9UGxheWZhaXIr
+RGlzcGxheTppdGFsLHdnaHRAMCw0MDA7MCw3MDA7MCw5MDA7MSw0MDA7MSw3
+MDAmZmFtaWx5PVNvdXJjZStTZXJpZis0Oml0YWwsb3Bzeix3Z2h0QDAsOC4u
+NjAsMzAwOzAsOC4uNjAsNDAwOzAsOC4uNjAsNjAwOzEsOC4uNjAsMzAwOzEs
+OC4uNjAsNDAwJmZhbWlseT1JbnRlcjp3Z2h0QDQwMDs1MDA7NjAwJmRpc3Bs
+YXk9c3dhcCIgcmVsPSJzdHlsZXNoZWV0IiAvPgogIDxzdHlsZT4KICAgICos
+ICo6OmJlZm9yZSwgKjo6YWZ0ZXIgeyBib3gtc2l6aW5nOiBib3JkZXItYm94
+OyBtYXJnaW46IDA7IHBhZGRpbmc6IDA7IH0KICAgIDpyb290IHsgLS1pbms6
+IzFhMWExYTsgLS1pbmstbGlnaHQ6IzQ0NDsgLS1ydWxlOiNjOGMwYjA7IC0t
+cnVsZS1saWdodDojZThlMmQ4OyAtLXBhcGVyOiNmYWY4ZjQ7IC0tcGFwZXIt
+YWx0OiNmMmVkZTQ7IC0tYWNjZW50OiNiNTI0MWM7IC0tYWNjZW50LWRrOiM4
+YzFhMTQ7IC0tdGFnLWJnOiNlY2U4ZTA7IC0tbWF4OjExMjBweDsgfQogICAg
+aHRtbCB7IHNjcm9sbC1iZWhhdmlvcjogc21vb3RoOyB9CiAgICBib2R5IHsg
+YmFja2dyb3VuZDogdmFyKC0tcGFwZXIpOyBjb2xvcjogdmFyKC0taW5rKTsg
+Zm9udC1mYW1pbHk6ICdTb3VyY2UgU2VyaWYgNCcsIEdlb3JnaWEsIHNlcmlm
+OyBmb250LXNpemU6IDE3cHg7IGxpbmUtaGVpZ2h0OiAxLjc7IC13ZWJraXQt
+Zm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkOyB9CiAgICBhIHsgY29sb3I6
+IGluaGVyaXQ7IHRleHQtZGVjb3JhdGlvbjogbm9uZTsgfQogICAgYTpob3Zl
+ciB7IGNvbG9yOiB2YXIoLS1hY2NlbnQpOyB9CiAgICAudGlja2VyLWJhciB7
+IGJhY2tncm91bmQ6IHZhcigtLWluayk7IGNvbG9yOiAjZmZmOyBmb250LWZh
+bWlseTogJ0ludGVyJywgc2Fucy1zZXJpZjsgZm9udC1zaXplOiAxMXB4OyBm
+b250LXdlaWdodDogNjAwOyBsZXR0ZXItc3BhY2luZzogMC4wOGVtOyB0ZXh0
+LXRyYW5zZm9ybTogdXBwZXJjYXNlOyBwYWRkaW5nOiA3cHggMDsgb3ZlcmZs
+b3c6IGhpZGRlbjsgd2hpdGUtc3BhY2U6IG5vd3JhcDsgfQogICAgLnRpY2tl
+ci1pbm5lciB7IGRpc3BsYXk6IGlubGluZS1ibG9jazsgYW5pbWF0aW9uOiB0
+aWNrZXIgMzJzIGxpbmVhciBpbmZpbml0ZTsgfQogICAgLnRpY2tlci1pbm5l
+ciBzcGFuIHsgbWFyZ2luOiAwIDM2cHg7IH0KICAgIEBrZXlmcmFtZXMgdGlj
+a2VyIHsgMCUgeyB0cmFuc2Zvcm06IHRyYW5zbGF0ZVgoMCk7IH0gMTAwJSB7
+IHRyYW5zZm9ybTogdHJhbnNsYXRlWCgtNTAlKTsgfSB9CiAgICAubWFzdGhl
+YWQgeyBib3JkZXItYm90dG9tOiA0cHggZG91YmxlIHZhcigtLXJ1bGUpOyBw
+YWRkaW5nOiAyOHB4IDI0cHggMjBweDsgdGV4dC1hbGlnbjogY2VudGVyOyBt
+YXgtd2lkdGg6IHZhcigtLW1heCk7IG1hcmdpbjogMCBhdXRvOyB9CiAgICAu
+bWFzdGhlYWQtbWV0YSB7IGZvbnQtZmFtaWx5OiAnSW50ZXInLCBzYW5zLXNl
+cmlmOyBmb250LXNpemU6IDExcHg7IGZvbnQtd2VpZ2h0OiA1MDA7IGxldHRl
+ci1zcGFjaW5nOiAwLjEyZW07IHRleHQtdHJhbnNmb3JtOiB1cHBlcmNhc2U7
+IGNvbG9yOiB2YXIoLS1pbmstbGlnaHQpOyBtYXJnaW4tYm90dG9tOiAxMHB4
+OyB9CiAgICAubWFzdGhlYWQgaDEgeyBmb250LWZhbWlseTogJ1BsYXlmYWly
+IERpc3BsYXknLCBHZW9yZ2lhLCBzZXJpZjsgZm9udC1zaXplOiBjbGFtcCg1
+MnB4LCA4dncsIDkycHgpOyBmb250LXdlaWdodDogOTAwOyBsZXR0ZXItc3Bh
+Y2luZzogLTAuMDJlbTsgbGluZS1oZWlnaHQ6IDE7IGNvbG9yOiB2YXIoLS1p
+bmspOyB9CiAgICAubWFzdGhlYWQgaDEgZW0geyBmb250LXN0eWxlOiBpdGFs
+aWM7IGNvbG9yOiB2YXIoLS1hY2NlbnQpOyB9CiAgICAubWFzdGhlYWQtc3Vi
+IHsgZm9udC1mYW1pbHk6ICdJbnRlcicsIHNhbnMtc2VyaWY7IGZvbnQtc2l6
+ZTogMTJweDsgbGV0dGVyLXNwYWNpbmc6IDAuMTRlbTsgdGV4dC10cmFuc2Zv
+cm06IHVwcGVyY2FzZTsgY29sb3I6IHZhcigtLWluay1saWdodCk7IG1hcmdp
+bi10b3A6IDEwcHg7IGJvcmRlci10b3A6IDFweCBzb2xpZCB2YXIoLS1ydWxl
+KTsgYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkIHZhcigtLXJ1bGUpOyBwYWRk
+aW5nOiA2cHggMDsgfQogICAgbmF2IHsgYm9yZGVyLWJvdHRvbTogMXB4IHNv
+bGlkIHZhcigtLXJ1bGUpOyBwYWRkaW5nOiAwIDI0cHg7IG1heC13aWR0aDog
+dmFyKC0tbWF4KTsgbWFyZ2luOiAwIGF1dG87IH0KICAgIG5hdiB1bCB7IGRp
+c3BsYXk6IGZsZXg7IGxpc3Qtc3R5bGU6IG5vbmU7IG92ZXJmbG93LXg6IGF1
+dG87IH0KICAgIG5hdiB1bCBsaSBhIHsgZGlzcGxheTogYmxvY2s7IGZvbnQt
+ZmFtaWx5OiAnSW50ZXInLCBzYW5zLXNlcmlmOyBmb250LXNpemU6IDEycHg7
+IGZvbnQtd2VpZ2h0OiA2MDA7IGxldHRlci1zcGFjaW5nOiAwLjFlbTsgdGV4
+dC10cmFuc2Zvcm06IHVwcGVyY2FzZTsgY28...
